@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2f648f096aa841e99388bcb88eb85ab6" Name="Diagram1">
+        <EntityTypeShape EntityType="FuegoModel.Address" Width="1.5" PointX="6" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuegoModel.Cart" Width="1.5" PointX="7.5" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuegoModel.Category" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuegoModel.Order" Width="1.5" PointX="8.25" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuegoModel.OrderProduct" Width="1.5" PointX="10.5" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuegoModel.Product" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuegoModel.Property" Width="1.5" PointX="6" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuegoModel.Role" Width="1.5" PointX="3.75" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuegoModel.Status" Width="1.5" PointX="6" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuegoModel.User" Width="1.5" PointX="6" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuegoModel.Value" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuegoModel.Variant" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuegoModel.VariantImage" Width="1.5" PointX="7.5" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuegoModel.VariantProperty" Width="1.5" PointX="10.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuegoModel.VariantPropertyValue" Width="1.5" PointX="8.25" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="FuegoModel.FK_OrderAddressID" ManuallyRouted="false" />
+        <AssociationConnector Association="FuegoModel.FK_CartVariant" ManuallyRouted="false" />
+        <AssociationConnector Association="FuegoModel.FK_Product_CategoryID" ManuallyRouted="false" />
+        <AssociationConnector Association="FuegoModel.FK_OrderProductOrderID" ManuallyRouted="false" />
+        <AssociationConnector Association="FuegoModel.FK_OrderUser" ManuallyRouted="false" />
+        <AssociationConnector Association="FuegoModel.FK_statusID" ManuallyRouted="false" />
+        <AssociationConnector Association="FuegoModel.FK_OrderProductVariant" ManuallyRouted="false" />
+        <AssociationConnector Association="FuegoModel.FK_Variant" ManuallyRouted="false" />
+        <AssociationConnector Association="FuegoModel.FK_VariantPropertyValue_PropertyID" ManuallyRouted="false" />
+        <AssociationConnector Association="FuegoModel.FK_User" ManuallyRouted="false" />
+        <AssociationConnector Association="FuegoModel.FK_VariantPropertyValue_ValueID" ManuallyRouted="false" />
+        <AssociationConnector Association="FuegoModel.FK_VariantImage" ManuallyRouted="false" />
+        <AssociationConnector Association="FuegoModel.FK_VariantProperty_VariantID" ManuallyRouted="false" />
+        <AssociationConnector Association="FuegoModel.FK_VariantProperty_PropertyValueID" ManuallyRouted="false" />
+        <AssociationConnector Association="FuegoModel.UserAddress" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+           
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @if (Session["UserID"] != null)
+                    {
+
+                      
+                        <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                        <li><h4 style="color:white">@Session["name"]</h4></li>
+
+                    }
+
+                    else
+                    {
+                        <li>@Html.ActionLink("Login", "Index", "Login")</li>
+                        <li>@Html.ActionLink("Register", "Index", "Register")</li>
+                    }
+                    <li> <input type="text" placeholder="search" /></li>
+                </ul>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Books", "Books", "Category")</li>
+                    <li>@Html.ActionLink("Watches", "Watches", "Category")</li>
+                    <li>@Html.ActionLink("Clothing", "Clothing", "Category")</li>
+                    <li>@Html.ActionLink("Television", "Television", "Category")</li>
+                    <li>@Html.ActionLink("Mobile", "Mobile", "Category")</li>
+                    <li>@Html.ActionLink("Footwear", "Footwear", "Category")</li>
+                    <li><input type="text" placeholder="cart" /></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now - My Fuego Site</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

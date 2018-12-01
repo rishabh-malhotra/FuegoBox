@@ -17,7 +17,7 @@ namespace FuegoBox.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Order()
         {
-            this.OrderProducts = new HashSet<OrderProduct>();
+            this.OrderProduct = new HashSet<OrderProduct>();
         }
     
         public System.Guid ID { get; set; }
@@ -31,7 +31,7 @@ namespace FuegoBox.DAL
     
         public virtual Address Address { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderProduct> OrderProducts { get; set; }
+        public virtual ICollection<OrderProduct> OrderProduct { get; set; }
         public virtual User User { get; set; }
         public virtual Status Status { get; set; }
     }

@@ -17,13 +17,13 @@ namespace FuegoBox.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Property()
         {
-            this.VariantPropertyValues = new HashSet<VariantPropertyValue>();
+            this.VariantPropertyValue = new HashSet<VariantPropertyValue>();
         }
     
         public System.Guid ID { get; set; }
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VariantPropertyValue> VariantPropertyValues { get; set; }
+        public virtual ICollection<VariantPropertyValue> VariantPropertyValue { get; set; }
     }
 }

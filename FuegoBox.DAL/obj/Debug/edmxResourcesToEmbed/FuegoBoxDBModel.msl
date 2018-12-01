@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="FuegoModelStoreContainer" CdmEntityContainer="FuegoEntities1">
-    <EntitySetMapping Name="Addresses">
+  <EntityContainerMapping StorageEntityContainer="FuegoModelStoreContainer" CdmEntityContainer="FuegoEntities">
+    <EntitySetMapping Name="Address">
       <EntityTypeMapping TypeName="FuegoModel.Address">
         <MappingFragment StoreEntitySet="Address">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -14,7 +14,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Carts">
+    <EntitySetMapping Name="Cart">
       <EntityTypeMapping TypeName="FuegoModel.Cart">
         <MappingFragment StoreEntitySet="Cart">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -24,7 +24,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Categories">
+    <EntitySetMapping Name="Category">
       <EntityTypeMapping TypeName="FuegoModel.Category">
         <MappingFragment StoreEntitySet="Category">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -33,7 +33,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Orders">
+    <EntitySetMapping Name="Order">
       <EntityTypeMapping TypeName="FuegoModel.Order">
         <MappingFragment StoreEntitySet="Order">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -47,7 +47,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="OrderProducts">
+    <EntitySetMapping Name="OrderProduct">
       <EntityTypeMapping TypeName="FuegoModel.OrderProduct">
         <MappingFragment StoreEntitySet="OrderProduct">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -58,7 +58,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Products">
+    <EntitySetMapping Name="Product">
       <EntityTypeMapping TypeName="FuegoModel.Product">
         <MappingFragment StoreEntitySet="Product">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -70,7 +70,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Properties">
+    <EntitySetMapping Name="Property">
       <EntityTypeMapping TypeName="FuegoModel.Property">
         <MappingFragment StoreEntitySet="Property">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -78,7 +78,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Roles">
+    <EntitySetMapping Name="Role">
       <EntityTypeMapping TypeName="FuegoModel.Role">
         <MappingFragment StoreEntitySet="Role">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -94,7 +94,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Users">
+    <EntitySetMapping Name="User">
       <EntityTypeMapping TypeName="FuegoModel.User">
         <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -106,7 +106,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Values">
+    <EntitySetMapping Name="Value">
       <EntityTypeMapping TypeName="FuegoModel.Value">
         <MappingFragment StoreEntitySet="Value">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -114,7 +114,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Variants">
+    <EntitySetMapping Name="Variant">
       <EntityTypeMapping TypeName="FuegoModel.Variant">
         <MappingFragment StoreEntitySet="Variant">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -126,7 +126,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="VariantImages">
+    <EntitySetMapping Name="VariantImage">
       <EntityTypeMapping TypeName="FuegoModel.VariantImage">
         <MappingFragment StoreEntitySet="VariantImage">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -135,7 +135,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="VariantProperties">
+    <EntitySetMapping Name="VariantProperty">
       <EntityTypeMapping TypeName="FuegoModel.VariantProperty">
         <MappingFragment StoreEntitySet="VariantProperty">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -144,7 +144,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="VariantPropertyValues">
+    <EntitySetMapping Name="VariantPropertyValue">
       <EntityTypeMapping TypeName="FuegoModel.VariantPropertyValue">
         <MappingFragment StoreEntitySet="VariantPropertyValue">
           <ScalarProperty Name="ID" ColumnName="ID" />

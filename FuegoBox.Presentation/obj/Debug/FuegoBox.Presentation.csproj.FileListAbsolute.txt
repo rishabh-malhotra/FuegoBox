@@ -111,8 +111,6 @@ C:\Users\geetikavarshney\source\repos\FuegoBox\FuegoBox.Presentation\bin\BCrypt.
 C:\Users\geetikavarshney\source\repos\FuegoBox\FuegoBox.Presentation\bin\Fuego.mdf
 C:\Users\geetikavarshney\source\repos\FuegoBox\FuegoBox.Presentation\bin\Fuego_log.ldf
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Presentation\bin\ApplicationInsights.config
-C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Presentation\bin\Fuego.mdf
-C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Presentation\bin\Fuego_log.ldf
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Presentation\bin\FuegoBox.Presentation.dll.config
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Presentation\bin\FuegoBox.Presentation.dll
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Presentation\bin\FuegoBox.Presentation.pdb

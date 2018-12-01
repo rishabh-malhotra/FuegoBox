@@ -9,14 +9,14 @@ namespace FuegoBox.DAL.DBObjects
 {
     public class UserDetail
     {
-        FuegoEntities1 dbContext;
+        FuegoEntities dbContext;
         IMapper userUserRegisterDTOmapper;
         IMapper UserRegisterDTOusermapper;
         IMapper userUserBasicDTOMapper;
 
         public UserDetail()
         {
-            dbContext = new FuegoEntities1();
+            dbContext = new FuegoEntities();
             var userUserRegisterDTOconfig = new MapperConfiguration(cfg =>
               {
                   cfg.CreateMap<User, UserRegisterDTO>();    

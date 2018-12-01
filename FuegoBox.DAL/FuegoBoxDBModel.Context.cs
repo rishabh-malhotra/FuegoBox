@@ -13,10 +13,10 @@ namespace FuegoBox.DAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FuegoEntities1 : DbContext
+    public partial class FuegoEntities : DbContext
     {
-        public FuegoEntities1()
-            : base("name=FuegoEntities1")
+        public FuegoEntities()
+            : base("name=FuegoEntities")
         {
         }
     

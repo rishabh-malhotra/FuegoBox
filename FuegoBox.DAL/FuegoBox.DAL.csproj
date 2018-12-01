@@ -169,9 +169,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Fuego.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="FuegoBoxDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FuegoBoxDBModel.edmx</DependentUpon>
@@ -181,10 +178,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FuegoBoxDBModel.edmx</DependentUpon>
       <LastGenOutput>FuegoBoxDBModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="Fuego_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Fuego.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -17,10 +17,10 @@ namespace FuegoBox.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Variant()
         {
-            this.Carts = new HashSet<Cart>();
-            this.OrderProducts = new HashSet<OrderProduct>();
-            this.VariantImages = new HashSet<VariantImage>();
-            this.VariantProperties = new HashSet<VariantProperty>();
+            this.Cart = new HashSet<Cart>();
+            this.OrderProduct = new HashSet<OrderProduct>();
+            this.VariantImage = new HashSet<VariantImage>();
+            this.VariantProperty = new HashSet<VariantProperty>();
         }
     
         public System.Guid ID { get; set; }
@@ -31,13 +31,13 @@ namespace FuegoBox.DAL
         public int Inventory { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cart> Carts { get; set; }
+        public virtual ICollection<Cart> Cart { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderProduct> OrderProducts { get; set; }
+        public virtual ICollection<OrderProduct> OrderProduct { get; set; }
         public virtual Product Product { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VariantImage> VariantImages { get; set; }
+        public virtual ICollection<VariantImage> VariantImage { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VariantProperty> VariantProperties { get; set; }
+        public virtual ICollection<VariantProperty> VariantProperty { get; set; }
     }
 }

@@ -22,8 +22,6 @@ C:\Users\geetikavarshney\source\repos\FuegoBox\FuegoBox.Business\bin\Debug\BCryp
 C:\Users\geetikavarshney\source\repos\FuegoBox\FuegoBox.Business\bin\Debug\BCrypt.Net.xml
 C:\Users\geetikavarshney\source\repos\FuegoBox\FuegoBox.Business\bin\Debug\Fuego.mdf
 C:\Users\geetikavarshney\source\repos\FuegoBox\FuegoBox.Business\bin\Debug\Fuego_log.ldf
-C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Business\bin\Debug\Fuego.mdf
-C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Business\bin\Debug\Fuego_log.ldf
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Business\bin\Debug\FuegoBox.Business.dll
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Business\bin\Debug\FuegoBox.Business.pdb
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Business\bin\Debug\AutoMapper.dll

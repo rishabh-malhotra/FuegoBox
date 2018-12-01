@@ -11,8 +11,8 @@
     <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Orders" Relationship="Self.FK_OrderAddressID" FromRole="Address" ToRole="Order" />
-    <NavigationProperty Name="Users" Relationship="Self.UserAddress" FromRole="Address" ToRole="User" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_OrderAddressID" FromRole="Address" ToRole="Order" />
+    <NavigationProperty Name="User" Relationship="Self.UserAddress" FromRole="Address" ToRole="User" />
   </EntityType>
   <EntityType Name="Cart">
     <Key>
@@ -31,7 +31,7 @@
     <Property Name="ID" Type="Guid" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ProductsSold" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Products" Relationship="Self.FK_Product_CategoryID" FromRole="Category" ToRole="Product" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Product_CategoryID" FromRole="Category" ToRole="Product" />
   </EntityType>
   <EntityType Name="Order">
     <Key>
@@ -46,7 +46,7 @@
     <Property Name="StatusID" Type="Guid" Nullable="false" />
     <Property Name="isCancelled" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Address" Relationship="Self.FK_OrderAddressID" FromRole="Order" ToRole="Address" />
-    <NavigationProperty Name="OrderProducts" Relationship="Self.FK_OrderProductOrderID" FromRole="Order" ToRole="OrderProduct" />
+    <NavigationProperty Name="OrderProduct" Relationship="Self.FK_OrderProductOrderID" FromRole="Order" ToRole="OrderProduct" />
     <NavigationProperty Name="User" Relationship="Self.FK_OrderUser" FromRole="Order" ToRole="User" />
     <NavigationProperty Name="Status" Relationship="Self.FK_statusID" FromRole="Order" ToRole="Status" />
   </EntityType>
@@ -73,7 +73,7 @@
     <Property Name="OrderLimit" Type="Int32" />
     <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Category" Relationship="Self.FK_Product_CategoryID" FromRole="Product" ToRole="Category" />
-    <NavigationProperty Name="Variants" Relationship="Self.FK_Variant" FromRole="Product" ToRole="Variant" />
+    <NavigationProperty Name="Variant" Relationship="Self.FK_Variant" FromRole="Product" ToRole="Variant" />
   </EntityType>
   <EntityType Name="Property">
     <Key>
@@ -81,7 +81,7 @@
     </Key>
     <Property Name="ID" Type="Guid" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="VariantPropertyValues" Relationship="Self.FK_VariantPropertyValue_PropertyID" FromRole="Property" ToRole="VariantPropertyValue" />
+    <NavigationProperty Name="VariantPropertyValue" Relationship="Self.FK_VariantPropertyValue_PropertyID" FromRole="Property" ToRole="VariantPropertyValue" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
@@ -89,7 +89,7 @@
     </Key>
     <Property Name="ID" Type="Guid" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Users" Relationship="Self.FK_User" FromRole="Role" ToRole="User" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User" FromRole="Role" ToRole="User" />
   </EntityType>
   <EntityType Name="Status">
     <Key>
@@ -97,7 +97,7 @@
     </Key>
     <Property Name="ID" Type="Guid" Nullable="false" />
     <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Orders" Relationship="Self.FK_statusID" FromRole="Status" ToRole="Order" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_statusID" FromRole="Status" ToRole="Order" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -109,7 +109,7 @@
     <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="PhoneNumber" Type="Int32" Nullable="false" />
     <Property Name="RoleID" Type="Guid" Nullable="false" />
-    <NavigationProperty Name="Orders" Relationship="Self.FK_OrderUser" FromRole="User" ToRole="Order" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_OrderUser" FromRole="User" ToRole="Order" />
     <NavigationProperty Name="Role" Relationship="Self.FK_User" FromRole="User" ToRole="Role" />
     <NavigationProperty Name="Address" Relationship="Self.UserAddress" FromRole="User" ToRole="Address" />
   </EntityType>
@@ -119,7 +119,7 @@
     </Key>
     <Property Name="ID" Type="Guid" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="VariantPropertyValues" Relationship="Self.FK_VariantPropertyValue_ValueID" FromRole="Value" ToRole="VariantPropertyValue" />
+    <NavigationProperty Name="VariantPropertyValue" Relationship="Self.FK_VariantPropertyValue_ValueID" FromRole="Value" ToRole="VariantPropertyValue" />
   </EntityType>
   <EntityType Name="Variant">
     <Key>
@@ -131,11 +131,11 @@
     <Property Name="Discount" Type="Double" Nullable="false" />
     <Property Name="QuantitySold" Type="Int32" Nullable="false" />
     <Property Name="Inventory" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Carts" Relationship="Self.FK_CartVariant" FromRole="Variant" ToRole="Cart" />
-    <NavigationProperty Name="OrderProducts" Relationship="Self.FK_OrderProductVariant" FromRole="Variant" ToRole="OrderProduct" />
+    <NavigationProperty Name="Cart" Relationship="Self.FK_CartVariant" FromRole="Variant" ToRole="Cart" />
+    <NavigationProperty Name="OrderProduct" Relationship="Self.FK_OrderProductVariant" FromRole="Variant" ToRole="OrderProduct" />
     <NavigationProperty Name="Product" Relationship="Self.FK_Variant" FromRole="Variant" ToRole="Product" />
-    <NavigationProperty Name="VariantImages" Relationship="Self.FK_VariantImage" FromRole="Variant" ToRole="VariantImage" />
-    <NavigationProperty Name="VariantProperties" Relationship="Self.FK_VariantProperty_VariantID" FromRole="Variant" ToRole="VariantProperty" />
+    <NavigationProperty Name="VariantImage" Relationship="Self.FK_VariantImage" FromRole="Variant" ToRole="VariantImage" />
+    <NavigationProperty Name="VariantProperty" Relationship="Self.FK_VariantProperty_VariantID" FromRole="Variant" ToRole="VariantProperty" />
   </EntityType>
   <EntityType Name="VariantImage">
     <Key>
@@ -165,7 +165,7 @@
     <Property Name="ValueID" Type="Guid" Nullable="false" />
     <NavigationProperty Name="Property" Relationship="Self.FK_VariantPropertyValue_PropertyID" FromRole="VariantPropertyValue" ToRole="Property" />
     <NavigationProperty Name="Value" Relationship="Self.FK_VariantPropertyValue_ValueID" FromRole="VariantPropertyValue" ToRole="Value" />
-    <NavigationProperty Name="VariantProperties" Relationship="Self.FK_VariantProperty_PropertyValueID" FromRole="VariantPropertyValue" ToRole="VariantProperty" />
+    <NavigationProperty Name="VariantProperty" Relationship="Self.FK_VariantProperty_PropertyValueID" FromRole="VariantPropertyValue" ToRole="VariantProperty" />
   </EntityType>
   <Association Name="FK_OrderAddressID">
     <End Role="Address" Type="Self.Address" Multiplicity="1" />
@@ -339,81 +339,81 @@
     <End Role="Address" Type="Self.Address" Multiplicity="0..1" />
     <End Role="User" Type="Self.User" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="FuegoEntities1" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Addresses" EntityType="Self.Address" />
-    <EntitySet Name="Carts" EntityType="Self.Cart" />
-    <EntitySet Name="Categories" EntityType="Self.Category" />
-    <EntitySet Name="Orders" EntityType="Self.Order" />
-    <EntitySet Name="OrderProducts" EntityType="Self.OrderProduct" />
-    <EntitySet Name="Products" EntityType="Self.Product" />
-    <EntitySet Name="Properties" EntityType="Self.Property" />
-    <EntitySet Name="Roles" EntityType="Self.Role" />
+  <EntityContainer Name="FuegoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Address" EntityType="Self.Address" />
+    <EntitySet Name="Cart" EntityType="Self.Cart" />
+    <EntitySet Name="Category" EntityType="Self.Category" />
+    <EntitySet Name="Order" EntityType="Self.Order" />
+    <EntitySet Name="OrderProduct" EntityType="Self.OrderProduct" />
+    <EntitySet Name="Product" EntityType="Self.Product" />
+    <EntitySet Name="Property" EntityType="Self.Property" />
+    <EntitySet Name="Role" EntityType="Self.Role" />
     <EntitySet Name="Status" EntityType="Self.Status" />
-    <EntitySet Name="Users" EntityType="Self.User" />
-    <EntitySet Name="Values" EntityType="Self.Value" />
-    <EntitySet Name="Variants" EntityType="Self.Variant" />
-    <EntitySet Name="VariantImages" EntityType="Self.VariantImage" />
-    <EntitySet Name="VariantProperties" EntityType="Self.VariantProperty" />
-    <EntitySet Name="VariantPropertyValues" EntityType="Self.VariantPropertyValue" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <EntitySet Name="Value" EntityType="Self.Value" />
+    <EntitySet Name="Variant" EntityType="Self.Variant" />
+    <EntitySet Name="VariantImage" EntityType="Self.VariantImage" />
+    <EntitySet Name="VariantProperty" EntityType="Self.VariantProperty" />
+    <EntitySet Name="VariantPropertyValue" EntityType="Self.VariantPropertyValue" />
     <AssociationSet Name="FK_OrderAddressID" Association="Self.FK_OrderAddressID">
-      <End Role="Address" EntitySet="Addresses" />
-      <End Role="Order" EntitySet="Orders" />
+      <End Role="Address" EntitySet="Address" />
+      <End Role="Order" EntitySet="Order" />
     </AssociationSet>
     <AssociationSet Name="FK_CartVariant" Association="Self.FK_CartVariant">
-      <End Role="Variant" EntitySet="Variants" />
-      <End Role="Cart" EntitySet="Carts" />
+      <End Role="Variant" EntitySet="Variant" />
+      <End Role="Cart" EntitySet="Cart" />
     </AssociationSet>
     <AssociationSet Name="FK_Product_CategoryID" Association="Self.FK_Product_CategoryID">
-      <End Role="Category" EntitySet="Categories" />
-      <End Role="Product" EntitySet="Products" />
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Product" EntitySet="Product" />
     </AssociationSet>
     <AssociationSet Name="FK_OrderProductOrderID" Association="Self.FK_OrderProductOrderID">
-      <End Role="Order" EntitySet="Orders" />
-      <End Role="OrderProduct" EntitySet="OrderProducts" />
+      <End Role="Order" EntitySet="Order" />
+      <End Role="OrderProduct" EntitySet="OrderProduct" />
     </AssociationSet>
     <AssociationSet Name="FK_OrderUser" Association="Self.FK_OrderUser">
-      <End Role="User" EntitySet="Users" />
-      <End Role="Order" EntitySet="Orders" />
+      <End Role="User" EntitySet="User" />
+      <End Role="Order" EntitySet="Order" />
     </AssociationSet>
     <AssociationSet Name="FK_statusID" Association="Self.FK_statusID">
       <End Role="Status" EntitySet="Status" />
-      <End Role="Order" EntitySet="Orders" />
+      <End Role="Order" EntitySet="Order" />
     </AssociationSet>
     <AssociationSet Name="FK_OrderProductVariant" Association="Self.FK_OrderProductVariant">
-      <End Role="Variant" EntitySet="Variants" />
-      <End Role="OrderProduct" EntitySet="OrderProducts" />
+      <End Role="Variant" EntitySet="Variant" />
+      <End Role="OrderProduct" EntitySet="OrderProduct" />
     </AssociationSet>
     <AssociationSet Name="FK_Variant" Association="Self.FK_Variant">
-      <End Role="Product" EntitySet="Products" />
-      <End Role="Variant" EntitySet="Variants" />
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Variant" EntitySet="Variant" />
     </AssociationSet>
     <AssociationSet Name="FK_VariantPropertyValue_PropertyID" Association="Self.FK_VariantPropertyValue_PropertyID">
-      <End Role="Property" EntitySet="Properties" />
-      <End Role="VariantPropertyValue" EntitySet="VariantPropertyValues" />
+      <End Role="Property" EntitySet="Property" />
+      <End Role="VariantPropertyValue" EntitySet="VariantPropertyValue" />
     </AssociationSet>
     <AssociationSet Name="FK_User" Association="Self.FK_User">
-      <End Role="Role" EntitySet="Roles" />
-      <End Role="User" EntitySet="Users" />
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
     </AssociationSet>
     <AssociationSet Name="FK_VariantPropertyValue_ValueID" Association="Self.FK_VariantPropertyValue_ValueID">
-      <End Role="Value" EntitySet="Values" />
-      <End Role="VariantPropertyValue" EntitySet="VariantPropertyValues" />
+      <End Role="Value" EntitySet="Value" />
+      <End Role="VariantPropertyValue" EntitySet="VariantPropertyValue" />
     </AssociationSet>
     <AssociationSet Name="FK_VariantImage" Association="Self.FK_VariantImage">
-      <End Role="Variant" EntitySet="Variants" />
-      <End Role="VariantImage" EntitySet="VariantImages" />
+      <End Role="Variant" EntitySet="Variant" />
+      <End Role="VariantImage" EntitySet="VariantImage" />
     </AssociationSet>
     <AssociationSet Name="FK_VariantProperty_VariantID" Association="Self.FK_VariantProperty_VariantID">
-      <End Role="Variant" EntitySet="Variants" />
-      <End Role="VariantProperty" EntitySet="VariantProperties" />
+      <End Role="Variant" EntitySet="Variant" />
+      <End Role="VariantProperty" EntitySet="VariantProperty" />
     </AssociationSet>
     <AssociationSet Name="FK_VariantProperty_PropertyValueID" Association="Self.FK_VariantProperty_PropertyValueID">
-      <End Role="VariantPropertyValue" EntitySet="VariantPropertyValues" />
-      <End Role="VariantProperty" EntitySet="VariantProperties" />
+      <End Role="VariantPropertyValue" EntitySet="VariantPropertyValue" />
+      <End Role="VariantProperty" EntitySet="VariantProperty" />
     </AssociationSet>
     <AssociationSet Name="UserAddress" Association="Self.UserAddress">
-      <End Role="Address" EntitySet="Addresses" />
-      <End Role="User" EntitySet="Users" />
+      <End Role="Address" EntitySet="Address" />
+      <End Role="User" EntitySet="User" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

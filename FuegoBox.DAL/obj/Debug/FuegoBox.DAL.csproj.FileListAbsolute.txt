@@ -19,8 +19,6 @@ C:\Users\geetikavarshney\source\repos\FuegoBox\FuegoBox.DAL\obj\Debug\FuegoBox.D
 C:\Users\geetikavarshney\source\repos\FuegoBox\FuegoBox.DAL\obj\Debug\FuegoBox.DAL.pdb
 C:\Users\geetikavarshney\source\repos\FuegoBox\FuegoBox.DAL\bin\Debug\Fuego.mdf
 C:\Users\geetikavarshney\source\repos\FuegoBox\FuegoBox.DAL\bin\Debug\Fuego_log.ldf
-C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.DAL\bin\Debug\Fuego.mdf
-C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.DAL\bin\Debug\Fuego_log.ldf
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.DAL\bin\Debug\FuegoBox.DAL.dll.config
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.DAL\bin\Debug\FuegoBox.DAL.dll
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.DAL\bin\Debug\FuegoBox.DAL.pdb

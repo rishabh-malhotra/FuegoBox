@@ -17,7 +17,7 @@ namespace FuegoBox.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.Variants = new HashSet<Variant>();
+            this.Variant = new HashSet<Variant>();
         }
     
         public System.Guid ID { get; set; }
@@ -29,6 +29,6 @@ namespace FuegoBox.DAL
     
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Variant> Variants { get; set; }
+        public virtual ICollection<Variant> Variant { get; set; }
     }
 }

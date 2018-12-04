@@ -1,54 +1,256 @@
 ﻿Insert into Variant values (NEWID(),'d9f531f0-f273-4651-8397-03476f44fc59',16000,14000,0,21);
+Insert into Variant values (NEWID(),'d9f531f0-f273-4651-8397-03476f44fc59',16321,14213,0,21);
+
+
 
 Insert into Variant values (NEWID(),'06ba7fcd-fa88-4806-bea9-04cc5608289b',44000,42000,0,22);
+Insert into Variant values (NEWID(),'06ba7fcd-fa88-4806-bea9-04cc5608289b',45000,43000,0,22);
+
+
 Insert into Variant values (NEWID(),'1d35b9f3-4dff-4b94-a329-062e75c154ad',15000,14000,0,21);
+Insert into Variant values (NEWID(),'1d35b9f3-4dff-4b94-a329-062e75c154ad',16000,15000,0,21);
+
 Insert into Variant values (NEWID(),'908613a9-56f1-40bb-98b3-088eacc7208c',17000,15000,0,21);
+Insert into Variant values (NEWID(),'908613a9-56f1-40bb-98b3-088eacc7208c',15000,13000,0,21);
+
+
 Insert into Variant values (NEWID(),'2104da4a-7ee6-47fc-9105-0a07efc17842',2000,1700,0,21);
-Insert into Variant values (NEWID(),'d22d3df8-52ee-4505-b20f-0a8dcd948609',2000,1900,0,21);
+Insert into Variant values (NEWID(),'2104da4a-7ee6-47fc-9105-0a07efc17842',1800,1500,0,21);
+
+
+Insert into Variant values (NEWID(),'d22d3df8-52ee-4505-b20f-0a8dcd948609',4100,4000,0,21);
+Insert into Variant values (NEWID(),'d22d3df8-52ee-4505-b20f-0a8dcd948609',4000,3900,0,21);
+
+
 Insert into Variant values (NEWID(),'25cd4d7a-a75e-4251-9f2d-1298515f8cc9',1200,1000,0,21);
+
+
 Insert into Variant values (NEWID(),'ae7303b4-ad85-4d55-94dc-16d050cead4b',2200,2100,0,21);
+Insert into Variant values (NEWID(),'ae7303b4-ad85-4d55-94dc-16d050cead4b',2100,2000,0,21);
+
+
 Insert into Variant values (NEWID(),'30694609-cfc4-4c76-8c0e-1a3a142ace02',1800,1650,0,21);
+Insert into Variant values (NEWID(),'30694609-cfc4-4c76-8c0e-1a3a142ace02',1700,1600,0,21);
+
+
 Insert into Variant values (NEWID(),'1d3f024e-fe53-425d-8905-1a6a6fc21473',1211,1111,0,21);
+
+
 Insert into Variant values (NEWID(),'b23ec341-816c-44b3-a382-1b66644687a7',21000,17482,0,21);
+Insert into Variant values (NEWID(),'b23ec341-816c-44b3-a382-1b66644687a7',22000,18882,0,21);
+
+
 Insert into Variant values (NEWID(),'5cf4f60c-aa76-4479-a3db-1f638af226bc',35000,32999,0,21);
+Insert into Variant values (NEWID(),'5cf4f60c-aa76-4479-a3db-1f638af226bc',40000,38999,0,21);
+
+
+
 Insert into Variant values (NEWID(),'abf28382-5067-437e-ad37-21d57248ec7d',10999,9999,0,21);
+
 Insert into Variant values (NEWID(),'c9412777-bee5-42bb-a9a6-321dfbcb185e',34876,32456,0,21);
+Insert into Variant values (NEWID(),'c9412777-bee5-42bb-a9a6-321dfbcb185e',38000,36456,0,21);
+
+
 Insert into Variant values (NEWID(),'67c08d2b-7eb1-43a0-8d35-36b7f0ac1b80',600,543,0,21);
+Insert into Variant values (NEWID(),'67c08d2b-7eb1-43a0-8d35-36b7f0ac1b80',600,543,0,21);
+
+
+
 Insert into Variant values (NEWID(),'d38f1cc7-9411-4b47-a783-3b14f45a364d',400,356,0,21);
+
 Insert into Variant values (NEWID(),'d0489962-3424-4928-a4af-3b66623ed40b',456,324,0,21);
+Insert into Variant values (NEWID(),'d0489962-3424-4928-a4af-3b66623ed40b',456,324,0,21);
+
+
+
 Insert into Variant values (NEWID(),'e52513ad-e135-41a2-abb8-3c3d9e398346',345,234,0,21);
+Insert into Variant values (NEWID(),'e52513ad-e135-41a2-abb8-3c3d9e398346',345,234,0,21);
+
+
 Insert into Variant values (NEWID(),'3c371103-06e7-4e1e-a387-423e1957a2b8',1200,1100,0,21);
+
 Insert into Variant values (NEWID(),'343ee2d3-4c2c-47c6-a2dd-42dab08c7502',1278,1154,0,21);
+Insert into Variant values (NEWID(),'343ee2d3-4c2c-47c6-a2dd-42dab08c7502',1578,1454,0,21);
+
+
+
 Insert into Variant values (NEWID(),'170b5385-f49a-4871-9a4c-4433c9b457eb',12345,11234,0,21);
+Insert into Variant values (NEWID(),'170b5385-f49a-4871-9a4c-4433c9b457eb',11299,10000,0,21);
+
+
+
 Insert into Variant values (NEWID(),'b4898364-715f-455e-b9c0-45474bdc8331',1212,1111,0,21);
+
 Insert into Variant values (NEWID(),'3dd0eea3-0b86-46f2-9430-570b368a391e',1345,1111,0,21);
+Insert into Variant values (NEWID(),'3dd0eea3-0b86-46f2-9430-570b368a391e',1245,1211,0,21);
+
+
 Insert into Variant values (NEWID(),'fcc39380-0147-41bb-9dcf-5f0f30232479',600,543,0,21);
+Insert into Variant values (NEWID(),'fcc39380-0147-41bb-9dcf-5f0f30232479',700,643,0,21);
+
+
 Insert into Variant values (NEWID(),'8f90a1f7-9aff-4650-8299-6db64747a544',800,654,0,21);
+
+Insert into Variant values (NEWID(),'8f90a1f7-9aff-4650-8299-6db64747a544',850,704,0,21);
+
+
+
 Insert into Variant values (NEWID(),'11678142-6404-466b-8278-7437736e2f7f',3400,3211,0,21);
 Insert into Variant values (NEWID(),'87920405-78ff-4cbe-a957-76ea0011e55d',3200,3100,0,21);
+Insert into Variant values (NEWID(),'87920405-78ff-4cbe-a957-76ea0011e55d',3400,3200,0,21);
+
+
+
 Insert into Variant values (NEWID(),'945d216c-ec25-4b3a-9438-78bbecbbc786',2500,2100,0,21);
+Insert into Variant values (NEWID(),'945d216c-ec25-4b3a-9438-78bbecbbc786',2400,2200,0,21);
+
+
 Insert into Variant values (NEWID(),'74f33498-31cc-4dea-b186-7bf3d1b11809',1800,1799,0,21);
+Insert into Variant values (NEWID(),'74f33498-31cc-4dea-b186-7bf3d1b11809',1700,1759,0,21);
+
+
+
 Insert into Variant values (NEWID(),'60c4b635-f272-4f1d-969e-802c1922f659',56000,52000,0,21);
+Insert into Variant values (NEWID(),'60c4b635-f272-4f1d-969e-802c1922f659',66000,62000,0,21);
+
+
+
+
 Insert into Variant values (NEWID(),'1923ff44-5fd9-4ac4-b41c-81b3e316061e',45000,43000,0,21);
+Insert into Variant values (NEWID(),'1923ff44-5fd9-4ac4-b41c-81b3e316061e',44000,42000,0,21);
+
 Insert into Variant values (NEWID(),'ad0a66d0-480e-4960-8062-85c99a68b8d9',320,200,0,21);
 Insert into Variant values (NEWID(),'e42af82e-9038-4000-a136-8642a9507abf',32000,31000,0,21);
-Insert into Variant values (NEWID(),'',,,0,21);
-Insert into Variant values (NEWID(),'',,,0,21);
-Insert into Variant values (NEWID(),'',,,0,21);
-Insert into Variant values (NEWID(),'',,,0,21);
-Insert into Variant values (NEWID(),'',,,0,21);
-Insert into Variant values (NEWID(),'',,,0,21);
-Insert into Variant values (NEWID(),'',,,0,21);
-Insert into Variant values (NEWID(),'',,,0,21);
-Insert into Variant values (NEWID(),'',,,0,21);
-Insert into Variant values (NEWID(),'',,,0,21);
-Insert into Variant values (NEWID(),'',,,0,21);
-Insert into Variant values (NEWID(),'',,,0,21);
-Insert into Variant values (NEWID(),'',,,0,21);
-Insert into Variant values (NEWID(),'',,,0,21);
-Insert into Variant values (NEWID(),'',,,0,21);
-Insert into Variant values (NEWID(),'',,,0,21);
-Insert into Variant values (NEWID(),'',,,0,21);
-Insert into Variant values (NEWID(),'',,,0,21);
-Insert into Variant values (NEWID(),'',,,0,21);
-Insert into Variant values (NEWID(),'',,,0,21);
+Insert into Variant values (NEWID(),'e42af82e-9038-4000-a136-8642a9507abf',27000,25000,0,21);
+
+
+Insert into Variant values (NEWID(),'52ba5679-3478-4596-82a2-8736c731176b',210,199,0,21);
+Insert into Variant values (NEWID(),'52ba5679-3478-4596-82a2-8736c731176b',214,192,0,21);
+
+Insert into Variant values (NEWID(),'be485c55-221a-47bf-b60d-88bd6675ba8a',16000,14599,0,21);
+Insert into Variant values (NEWID(),'be485c55-221a-47bf-b60d-88bd6675ba8a',15000,13599,0,21);
+
+
+
+Insert into Variant values (NEWID(),'81320972-1e3c-4819-9a0a-8a68a081fce5',2100,1900,0,21);
+Insert into Variant values (NEWID(),'894f2cef-817c-41b2-b4ba-8ebb2ee1246b',45000,42000,0,21);
+Insert into Variant values (NEWID(),'894f2cef-817c-41b2-b4ba-8ebb2ee1246b',55000,53000,0,21);
+
+
+Insert into Variant values (NEWID(),'65400d37-2904-4fa0-9abf-92ed62314f27',43000,41000,0,21);
+Insert into Variant values (NEWID(),'65400d37-2904-4fa0-9abf-92ed62314f27',40000,39000,0,21);
+
+
+Insert into Variant values (NEWID(),'b87458a9-206d-4bb1-8dbd-954219730d11',32000,31000,0,21);
+Insert into Variant values (NEWID(),'5377a858-e99a-4203-926e-989153a5c637',21000,20000,0,21);
+Insert into Variant values (NEWID(),'5377a858-e99a-4203-926e-989153a5c637',25000,23000,0,21);
+
+Insert into Variant values (NEWID(),'a29b54ee-12b4-45ed-b777-98d1029875a7',1200,1100,0,21);
+Insert into Variant values (NEWID(),'a29b54ee-12b4-45ed-b777-98d1029875a7',1100,1000,0,21);
+
+
+Insert into Variant values (NEWID(),'2f52f9f3-90cc-4377-8330-9d91ff0d468f',21000,20000,0,21);
+Insert into Variant values (NEWID(),'2f52f9f3-90cc-4377-8330-9d91ff0d468f',32000,30000,0,21);
+
+
+Insert into Variant values (NEWID(),'015e1d42-6b47-4911-af72-a004c1885cd1',12000,11500,0,21);
+Insert into Variant values (NEWID(),'015e1d42-6b47-4911-af72-a004c1885cd1',12500,11200,0,21);
+
+
+
+Insert into Variant values (NEWID(),'045af1e5-b0b8-4fcf-85e4-a334be94b547',1299,1199,0,21);
+Insert into Variant values (NEWID(),'58f320dc-f153-486d-9b6a-aa6c4f37a2e5',1234,1123,0,21);
+
+Insert into Variant values (NEWID(),'61fbae40-935c-4cc5-afc5-ab1cc208ae9c',2299,2199,0,21);
+Insert into Variant values (NEWID(),'61fbae40-935c-4cc5-afc5-ab1cc208ae9c',2199,2099,0,21);
+
+Insert into Variant values (NEWID(),'f4bdcd63-4612-4d47-affa-ab72a5b62c6d',35000,34000,0,21);
+Insert into Variant values (NEWID(),'f4bdcd63-4612-4d47-affa-ab72a5b62c6d',34000,33000,0,21);
+
+
+Insert into Variant values (NEWID(),'795e7449-74e4-4c06-a138-aca59495e220',2100,2091,0,21);
+Insert into Variant values (NEWID(),'795e7449-74e4-4c06-a138-aca59495e220',2000,1900,0,21);
+
+
+Insert into Variant values (NEWID(),'1b5a6075-e3e2-48f0-96fb-b0ad7f67f56a',32000,31000,0,21);
+Insert into Variant values (NEWID(),'1b5a6075-e3e2-48f0-96fb-b0ad7f67f56a',30000,29000,0,21);
+
+
+Insert into Variant values (NEWID(),'d3c31110-595a-4037-a038-b26f0efa181d',23000,21000,0,21);
+Insert into Variant values (NEWID(),'d3c31110-595a-4037-a038-b26f0efa181d',18000,17000,0,21);
+
+Insert into Variant values (NEWID(),'46a57e29-2174-4c40-ab48-b4e52ab1ef75',2100,1900,0,21);
+Insert into Variant values (NEWID(),'6ab9ff3d-b21a-4b62-8346-c134dd2218e7',1890,1670,0,21);
+
+Insert into Variant values (NEWID(),'998b22a1-15a4-45a6-bf62-c3f8653a02d4',32000,31000,0,21);
+Insert into Variant values (NEWID(),'998b22a1-15a4-45a6-bf62-c3f8653a02d4',42000,41000,0,21);
+
+Insert into Variant values (NEWID(),'dea02cb2-f724-4027-b593-c7201bf45a32',34789,33789,0,21);
+Insert into Variant values (NEWID(),'dea02cb2-f724-4027-b593-c7201bf45a32',44789,43789,0,21);
+
+
+Insert into Variant values (NEWID(),'0d781911-8d51-4695-9efc-cccfb8590295',2200,2100,0,21);
+Insert into Variant values (NEWID(),'7991dde6-afd0-4144-ba23-cdb0b73875ac',8000,7800,0,21);
+Insert into Variant values (NEWID(),'7991dde6-afd0-4144-ba23-cdb0b73875ac',8400,8200,0,21);
+
+
+Insert into Variant values (NEWID(),'495cec51-ed2d-4003-90a0-d0d0a97df673',12999,11999,0,21);
+Insert into Variant values (NEWID(),'495cec51-ed2d-4003-90a0-d0d0a97df673',13999,12999,0,21);
+
+Insert into Variant values (NEWID(),'85824861-3ea0-40d0-ba61-d6a9f69cbce6',65000,63000,0,21);
+Insert into Variant values (NEWID(),'85824861-3ea0-40d0-ba61-d6a9f69cbce6',60000,53000,0,21);
+
+Insert into Variant values (NEWID(),'2900f5af-fb37-4c56-bcdd-dadb0da230fd',5000,4800,0,21);
+
+Insert into Variant values (NEWID(),'2900f5af-fb37-4c56-bcdd-dadb0da230fd',5200,5000,0,21);
+
+
+Insert into Variant values (NEWID(),'b7543a11-adc0-467d-880c-dc5620ca3210',3000,2900,0,21);
+
+Insert into Variant values (NEWID(),'b7543a11-adc0-467d-880c-dc5620ca3210',3200,3100,0,21);
+Insert into Variant values (NEWID(),'9d0bad6e-cb6b-4594-bab8-e0ffff0e6e00',21000,20000,0,21);
+
+
+Insert into Variant values (NEWID(),'05bfb1f6-e5e4-41d8-8e13-e3362f4af703',2800,2700,0,21);
+Insert into Variant values (NEWID(),'05bfb1f6-e5e4-41d8-8e13-e3362f4af703',2400,2200,0,21);
+
+
+Insert into Variant values (NEWID(),'2825418c-714f-47a2-bcab-e4a94318a58f',54000,53000,0,21);
+
+Insert into Variant values (NEWID(),'2825418c-714f-47a2-bcab-e4a94318a58f',32000,31000,0,21);
+
+Insert into Variant values (NEWID(),'b64ecdfc-1615-4802-9ce1-e503f9c7b629',32000,31000,0,21);
+
+Insert into Variant values (NEWID(),'b64ecdfc-1615-4802-9ce1-e503f9c7b629',21000,19000,0,21);
+
+
+
+Insert into Variant values (NEWID(),'38e64a77-3a29-42a5-b226-eb9094b5f4b1',3100,3000,0,21);
+Insert into Variant values (NEWID(),'38e64a77-3a29-42a5-b226-eb9094b5f4b1',3000,2900,0,21);
+
+Insert into Variant values (NEWID(),'9de75f32-5f4a-4278-99d0-f15b4898a7cc',21567,20899,0,21);
+
+Insert into Variant values (NEWID(),'9de75f32-5f4a-4278-99d0-f15b4898a7cc',27567,25899,0,21);
+
+
+
+
+Insert into Variant values (NEWID(),'09776ebb-c8f0-409b-a96c-f213f34df656',790,690,0,21);
+Insert into Variant values (NEWID(),'e267c723-1208-4d70-94b8-f2b112267f16',35000,34000,0,21);
+
+Insert into Variant values (NEWID(),'e267c723-1208-4d70-94b8-f2b112267f16',34500,33000,0,21);
+
+
+Insert into Variant values (NEWID(),'a1a81ef0-894c-4e55-980f-f3d5b3607f6d',11000,10000,0,21);
+Insert into Variant values (NEWID(),'a1a81ef0-894c-4e55-980f-f3d5b3607f6d',12000,11000,0,21);
+Insert into Variant values (NEWID(),'9b0a5133-9010-4b81-9a7a-f94281c5f75a',7000,6000,0,21);
+Insert into Variant values (NEWID(),'9b0a5133-9010-4b81-9a7a-f94281c5f75a',6000,5000,0,21);
+
+
+Insert into Variant values (NEWID(),'eada4a06-4128-47bc-8d67-fadf60dca382',7800,7000,0,21);
+Insert into Variant values (NEWID(),'8432f446-22a5-48b5-b844-fbd08b9d1cf7',4300,4200,0,21);
+
+Insert into Variant values (NEWID(),'8432f446-22a5-48b5-b844-fbd08b9d1cf7',4100,4000,0,21);
+
+
+Insert into Variant values (NEWID(),'9edefd12-8510-439b-b356-fdde2bdbfe52',4300,4200,0,21);

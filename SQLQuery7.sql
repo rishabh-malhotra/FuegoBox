@@ -1,0 +1,1 @@
+﻿delete from Variant where ID='3c65dfa2-2628-4772-9544-b48fc07e037b'

@@ -48,9 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DTO\Product\ProductDTO.cs" />
     <Compile Include="DTO\User\UserBasicDTO.cs" />
     <Compile Include="DTO\User\UserLoginDTO.cs" />
     <Compile Include="DTO\User\UserRegisterDTO.cs" />
+    <Compile Include="DTO\Variant\VariantDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,2 +1,2 @@
 ﻿Insert into VariantPropertyValue
-Values (NEWID(),'7d391e5f-ae09-4028-9756-357a20311546',)
+Values (NewID(),'dfae613f-df7e-4cb8-b425-2eb51205833b','181d8069-4d93-4a29-b942-5d34731131f9'),(NewID(),'dfae613f-df7e-4cb8-b425-2eb51205833b','843cb164-c54b-4db1-9f9b-2818a3a80420'),(NewID(),'dfae613f-df7e-4cb8-b425-2eb51205833b','a1ab1cdd-3ac7-48a5-9b68-70efc0c0142e'),(NewID(),'dfae613f-df7e-4cb8-b425-2eb51205833b','02e30f25-31e6-4fdb-9a95-5bc724d066b2')

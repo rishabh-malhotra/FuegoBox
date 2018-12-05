@@ -38,3 +38,5 @@ C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.DAL\obj\Debug\FuegoBox.D
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.DAL\obj\Debug\FuegoBox.DAL.csproj.CopyComplete
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.DAL\obj\Debug\FuegoBox.DAL.dll
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.DAL\obj\Debug\FuegoBox.DAL.pdb
+C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.DAL\bin\Debug\Fuego.mdf
+C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.DAL\bin\Debug\Fuego_log.ldf

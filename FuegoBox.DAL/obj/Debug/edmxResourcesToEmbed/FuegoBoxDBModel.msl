@@ -64,7 +64,6 @@
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="OrderLimit" ColumnName="OrderLimit" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>

@@ -220,3 +220,5 @@ C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Presentation\obj\Debug\F
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Presentation\obj\Debug\FuegoBox.Presentation.csproj.CopyComplete
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Presentation\obj\Debug\FuegoBox.Presentation.dll
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Presentation\obj\Debug\FuegoBox.Presentation.pdb
+C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Presentation\bin\Fuego.mdf
+C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Presentation\bin\Fuego_log.ldf

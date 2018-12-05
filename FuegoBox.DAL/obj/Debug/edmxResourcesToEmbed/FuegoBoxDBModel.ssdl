@@ -59,7 +59,6 @@
     <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="CategoryID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="OrderLimit" Type="int" />
     <Property Name="Description" Type="nvarchar" MaxLength="250" />
   </EntityType>

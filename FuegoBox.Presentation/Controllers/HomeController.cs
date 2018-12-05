@@ -12,7 +12,6 @@ namespace FuegoBox.Presentation.Controllers
         {
             return View();
         }
-
-       
+        
     }
 }

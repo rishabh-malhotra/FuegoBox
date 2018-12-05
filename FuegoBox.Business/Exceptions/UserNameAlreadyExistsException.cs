@@ -11,8 +11,6 @@ namespace FuegoBox.Business.Exceptions
         public UserNameAlreadyExistsException() { }
         public UserNameAlreadyExistsException(string message) : base(message) { }
         public UserNameAlreadyExistsException(string message,Exception inner):base(message,inner)
-        {
-
-        }
+        {}
     }
 }

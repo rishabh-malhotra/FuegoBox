@@ -23,7 +23,6 @@ namespace FuegoBox.DAL
         public System.Guid ID { get; set; }
         public System.Guid CategoryID { get; set; }
         public string Name { get; set; }
-        public string Title { get; set; }
         public Nullable<int> OrderLimit { get; set; }
         public string Description { get; set; }
     

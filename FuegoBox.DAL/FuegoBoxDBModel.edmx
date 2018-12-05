@@ -64,7 +64,6 @@
           <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="CategoryID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="OrderLimit" Type="int" />
           <Property Name="Description" Type="nvarchar" MaxLength="250" />
         </EntityType>
@@ -497,7 +496,6 @@
           <Property Name="ID" Type="Guid" Nullable="false" />
           <Property Name="CategoryID" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="OrderLimit" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Product_CategoryID" FromRole="Product" ToRole="Category" />
@@ -913,7 +911,6 @@
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="OrderLimit" ColumnName="OrderLimit" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>

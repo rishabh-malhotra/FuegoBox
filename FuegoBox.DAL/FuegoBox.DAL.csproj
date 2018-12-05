@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -81,6 +81,8 @@
       <DependentUpon>FuegoBoxDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="DBObjects\CategoryProductDB.cs" />
+    <Compile Include="DBObjects\ProductDetailDB.cs" />
     <Compile Include="DBObjects\UserDetail.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="FuegoBoxDBModel.Context.cs">
@@ -137,7 +139,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="FuegoBoxDBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>FuegoBoxDBModel.Designer.cs</LastGenOutput>
@@ -169,6 +173,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Fuego.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="FuegoBoxDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FuegoBoxDBModel.edmx</DependentUpon>
@@ -178,6 +185,10 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FuegoBoxDBModel.edmx</DependentUpon>
       <LastGenOutput>FuegoBoxDBModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Fuego_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Fuego.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

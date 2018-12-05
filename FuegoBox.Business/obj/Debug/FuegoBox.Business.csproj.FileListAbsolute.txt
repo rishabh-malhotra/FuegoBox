@@ -44,3 +44,5 @@ C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Business\obj\Debug\Fuego
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Business\obj\Debug\FuegoBox.Business.csproj.CopyComplete
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Business\obj\Debug\FuegoBox.Business.dll
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Business\obj\Debug\FuegoBox.Business.pdb
+C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Business\bin\Debug\Fuego.mdf
+C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Business\bin\Debug\Fuego_log.ldf

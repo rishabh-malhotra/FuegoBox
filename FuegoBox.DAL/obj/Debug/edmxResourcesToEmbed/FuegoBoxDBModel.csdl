@@ -69,7 +69,6 @@
     <Property Name="ID" Type="Guid" Nullable="false" />
     <Property Name="CategoryID" Type="Guid" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="OrderLimit" Type="Int32" />
     <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Category" Relationship="Self.FK_Product_CategoryID" FromRole="Product" ToRole="Category" />

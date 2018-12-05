@@ -1,0 +1,19 @@
+﻿@model FuegoBox.Presentation.Models.ProductDetail
+@{
+    ViewBag.Title = "PDetail";
+}
+
+
+<h4><b>Name:</b> @Model.Name</h4>
+
+<h4><b>Description:</b> @Model.Description</h4>
+
+<h4><b>Category:</b> @Model.CatName</h4>
+
+<h4><b>Price:</b> @Model.ListingPrice</h4>
+
+
+<h4><b>Discount Price:</b> @Model.Discount</h4>
+<img src="@Model.img" width="200px" height="200px" />
+
+<a href="@Url.Action("CardDetail", "Card", new { Name = Model.Name})">Add To Cart</a>

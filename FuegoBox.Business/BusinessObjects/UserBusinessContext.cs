@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FuegoBox.Shared.DTO.User;
 using FuegoBox.DAL.DBObjects;
 using AutoMapper;
 using FuegoBox.Business.Exceptions;
@@ -15,7 +14,6 @@ namespace FuegoBox.Business.BusinessObjects
     public class UserBusinessContext
     {
         UserDetail UserDBObject;
-        IMapper mapper;
         public UserBusinessContext()
         {
             UserDBObject = new UserDetail();

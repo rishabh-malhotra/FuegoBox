@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="07b2bf17e02649b4bc98e9191cf70239" Name="Diagram1">
+      <Diagram DiagramId="cacf9507ae9e421db9e9be6e2f1ea2fd" Name="Diagram1">
         <EntityTypeShape EntityType="FuegoModel.Address" Width="1.5" PointX="6" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FuegoModel.Cart" Width="1.5" PointX="7.5" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FuegoModel.Category" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="FuegoModel.Order" Width="1.5" PointX="8.25" PointY="17.375" IsExpanded="true" />
         <EntityTypeShape EntityType="FuegoModel.OrderProduct" Width="1.5" PointX="10.5" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="FuegoModel.Product" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuegoModel.Product" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="FuegoModel.Property" Width="1.5" PointX="6" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="FuegoModel.Role" Width="1.5" PointX="3.75" PointY="21.125" IsExpanded="true" />
         <EntityTypeShape EntityType="FuegoModel.Status" Width="1.5" PointX="6" PointY="18.25" IsExpanded="true" />

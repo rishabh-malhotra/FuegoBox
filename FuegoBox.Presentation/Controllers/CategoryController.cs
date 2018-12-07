@@ -122,5 +122,17 @@ namespace FuegoBox.Presentation.Controllers
                 return View("Internal Error");
             }
         }
+
+        public ActionResult ViewProductCategory(string CategoryName)
+        {
+
+            CategoryModel categorymodel = new CategoryModel();
+            CategoryDTO cdto = new CategoryDTO();
+            cdto = categoryDetailContext.GetCategoryProduct(CategoryName);
+            categorymodel = catMapper.Map<CategoryDTO, CategoryModel>(cdto);
+            return View(categorymodel);
+        }
+
     }
 }
+

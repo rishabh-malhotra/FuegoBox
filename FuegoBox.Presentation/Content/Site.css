@@ -34,3 +34,34 @@ textarea {
 
 
 }
+
+.product-entry {
+    display: block;
+    height: 100% !important;
+}
+
+    .product-entry .prod-img {
+        display: block;
+    }
+
+    .product-entry .desc {
+        padding: 1.5em;
+    }
+
+        .product-entry .desc h2 {
+            text-transform: uppercase;
+            font-size: 18px;
+        }
+
+            .product-entry .desc h2 a {
+                color: #000;
+            }
+
+        .product-entry .desc span.price {
+            display: block;
+            font-family: "Rokkitt", Georgia, serif;
+            font-size: 18px;
+            color: #F6546A;
+            font-weight: 400;
+        }
+

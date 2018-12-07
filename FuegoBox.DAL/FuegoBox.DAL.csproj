@@ -84,7 +84,12 @@
     <Compile Include="DBObjects\CategoryProductDB.cs" />
     <Compile Include="DBObjects\ProductDetailDB.cs" />
     <Compile Include="DBObjects\UserDetail.cs" />
+    <Compile Include="Exceptions\AlreadyPresentException.cs" />
+    <Compile Include="Exceptions\CategoryNotFoundException.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
+    <Compile Include="Exceptions\ProductNotFoundException.cs" />
+    <Compile Include="Exceptions\UserNameDoesNotExistsException.cs" />
+    <Compile Include="Exceptions\UserNotFoundException.cs" />
     <Compile Include="FuegoBoxDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

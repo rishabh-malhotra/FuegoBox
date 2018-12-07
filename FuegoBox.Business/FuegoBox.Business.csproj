@@ -54,7 +54,11 @@
     <Compile Include="BusinessObjects\ProductDetailContext.cs" />
     <Compile Include="BusinessObjects\UserBusinessContext.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Exceptions\CategoryDoesNotExistsException.cs" />
     <Compile Include="Exceptions\InvalidLoginException.cs" />
+    <Compile Include="Exceptions\ItemAlreadyInCartException.cs" />
+    <Compile Include="Exceptions\NoOrderException.cs" />
+    <Compile Include="Exceptions\ProductDoesNotExistsException.cs" />
     <Compile Include="Exceptions\UserNameAlreadyExistsException.cs" />
     <Compile Include="PasswordHasher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

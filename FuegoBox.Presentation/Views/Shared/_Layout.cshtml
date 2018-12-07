@@ -7,9 +7,11 @@
     <link href="~/Content/Site.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
 </head>
 
-<body background="~/Content/background.jpg">
+<body>
     <div style="height:30px">
         <nav class="navbar navbar-fixed-top" style="height:80px;background-color:gainsboro">
             <div class="navbar-form navbar-left ">
@@ -17,50 +19,40 @@
 
                 @using (Html.BeginForm("SearchResults", "Category", FormMethod.Get))
                 {
-                <div class="input-group" style="margin-left:200px;margin-top:-80px">
-                    <input type="text" name="SearchString" class="form-control" placeholder="Search" style="width:300px">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" type="submit">
-                            <i class="glyphicon glyphicon-search"></i>
-                        </button>
+                    <div class="input-group" style="margin-left:200px;margin-top:-80px">
+                        <input type="text" name="SearchString" class="form-control" placeholder="Search" style="width:300px">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
                     </div>
+                }
                 </div>
+
+                <div class="container ">
+                    <ul class="nav navbar-nav navbar-right" style="margin-top:20px">
+                        <li><span class="glyphicon glyphicon-heart"></span>@Html.ActionLink("Home", "Index", "Home")</li>
+                        @if (Session["UserID"] != null)
+                        {
+                            <li><i class="glyphicon glyphicon-log-out"></i>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                            <li><h4 style="color:white">@Session["name"]</h4></li>
                         }
 
-                    
+
+
+                        else
+                        {
+                            <li><i class="glyphicon glyphicon-log-in"></i>@Html.ActionLink("Login", "Index", "Login")</li>
+                            <li><i class="glyphicon glyphicon-user"></i>@Html.ActionLink("Register", "Index", "Register")</li>
+                        }
+
+                    </ul>
                 </div>
-
-            <div class="container ">
-                <ul class="nav navbar-nav navbar-right" style="margin-top:20px">
-                    <li><span class="glyphicon glyphicon-heart"></span>@Html.ActionLink("Home", "Index", "Home")</li>
-                    @if (Session["UserID"] != null)
-                    {
-                        <li><i class="glyphicon glyphicon-log-out"></i>@Html.ActionLink("Logout", "Logout", "Login")</li>
-                        <li><h4 style="color:white">@Session["name"]</h4></li>
-                    }
-
-
-
-                    else
-                    {
-                        <li><i class="glyphicon glyphicon-log-in"></i>@Html.ActionLink("Login", "Index", "Login")</li>
-                        <li><i class="glyphicon glyphicon-user"></i>@Html.ActionLink("Register", "Index", "Register")</li>
-                    }
-
-                </ul>
-            </div>
-        </nav>
+</nav>
     </div>
     <div style="height:100px;background-color:whitesmoke">
-        <div class=" navbar-collapse collapse navbar-right" style="margin-top:25px">
-            <div class="icon-cart" style="float:left">
-                <div class="cart-line-1"></div>
-                <div class="cart-line-2"></div>
-                <div class="cart-line-3"></div>
-                <div class="cart-wheel"></div>
-            </div>
-            <button class="btn btn-primary active" style="margin-right:10px">add to cart</button>
-        </div>
+           
         <ul class="nav navbar-nav" style="height:80px;font-size:20px;">
             <li style="margin-left:20px;padding:25px"><i class="glyphicon glyphicon-book"></i>@Html.ActionLink("Book", "Book", "Category")</li>
             <li style="padding:25px"><i class="glyphicon glyphicon-time"></i>@Html.ActionLink("Watches", "Watches", "Category")</li>

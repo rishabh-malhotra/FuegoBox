@@ -17,7 +17,6 @@ C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Shared\bin\Debug\System.
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Shared\bin\Debug\AutoMapper.pdb
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Shared\bin\Debug\AutoMapper.xml
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Shared\bin\Debug\System.ValueTuple.xml
-C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Shared\obj\Debug\FuegoBox.Shared.csprojAssemblyReference.cache
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Shared\obj\Debug\FuegoBox.Shared.csproj.CoreCompileInputs.cache
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Shared\obj\Debug\FuegoBox.Shared.csproj.CopyComplete
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Shared\obj\Debug\FuegoBox.Shared.dll

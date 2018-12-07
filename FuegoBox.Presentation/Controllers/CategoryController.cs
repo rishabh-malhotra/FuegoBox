@@ -1,5 +1,4 @@
-﻿
-using AutoMapper;
+﻿using AutoMapper;
 using FuegoBox.Business.BusinessObjects;
 using FuegoBox.Presentation.Models;
 using FuegoBox.Shared.DTO.Category;
@@ -19,6 +18,7 @@ namespace FuegoBox.Presentation.Controllers
         IMapper catMapper;
         ProductDetailContext productDetailContext;
         CategoryDetailContext categoryDetailContext;
+        IMapper SearchResultVMMapper;
 
         public CategoryController()
         {
@@ -26,7 +26,8 @@ namespace FuegoBox.Presentation.Controllers
             productDetailContext = new ProductDetailContext();
             categoryDetailContext = new CategoryDetailContext();
 
-            var config = new MapperConfiguration(cfg => {
+            var config = new MapperConfiguration(cfg =>
+            {
                 cfg.CreateMap<ProductDetail, ProductDetailDTO>();
             });
 
@@ -35,16 +36,22 @@ namespace FuegoBox.Presentation.Controllers
                 cfg.CreateMap<CategoryDTO, CategoryModel>();
             });
 
+           var productSearchResultDTOConfig = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<ProductDetailDTO, ProductModel>();
+                cfg.CreateMap<VariantDTO, VariantModel>();
+                cfg.CreateMap<SearchResultsDTO, SearchResultsModel>();
+            });
+
             productmapper = new Mapper(config);
             catMapper = new Mapper(conf);
-
+            SearchResultVMMapper = new Mapper(productSearchResultDTOConfig);
 
         }
 
         public ActionResult Book()
         {
             String catName = "Books";
-
             CategoryModel categorymodel = new CategoryModel();
             CategoryDTO cdto = new CategoryDTO();
             cdto = categoryDetailContext.GetCategoryProduct(catName);
@@ -91,10 +98,28 @@ namespace FuegoBox.Presentation.Controllers
         {
             return View();
         }
-        [HttpPost]
-        public ActionResult SearchResult()
+
+        
+        public ActionResult SearchResults(string SearchString)
         {
-            return View();
+            if (String.IsNullOrEmpty(SearchString))
+            {
+                ViewBag.SearchString = "Search String Empty";
+                return View();//TODO
+            }
+            SearchResultsDTO newProductsSearchResultDTO = new SearchResultsDTO();
+            SearchResultsModel viewModel = new SearchResultsModel();
+            try
+            {
+                newProductsSearchResultDTO = productDetailContext.GetProductsWithString(SearchString);
+                viewModel = SearchResultVMMapper.Map<SearchResultsDTO, SearchResultsModel>(newProductsSearchResultDTO);
+                ViewBag.SearchString = SearchString;
+                return View(viewModel);
+            }
+            catch (Exception ex)
+            {
+                return View("Internal Error");
+            }
         }
     }
 }

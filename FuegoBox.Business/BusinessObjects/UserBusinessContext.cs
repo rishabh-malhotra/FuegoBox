@@ -66,6 +66,12 @@ namespace FuegoBox.Business.BusinessObjects
             }
             
         }
+        public bool CheckAdmin(Guid UserID)
+        {
+            return UserDBObject.CheckAdmin(UserID);
+        }
+
+
     }
 
 }

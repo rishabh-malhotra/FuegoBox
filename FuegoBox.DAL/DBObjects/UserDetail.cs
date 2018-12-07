@@ -90,5 +90,20 @@ namespace FuegoBox.DAL.DBObjects
             UserBasicDTO userBasicDTO = userUserBasicDTOMapper.Map<User, UserBasicDTO>(user);
             return userBasicDTO;
         }
+
+        public bool CheckAdmin(Guid UserID)
+        {
+            User user = dbContext.User.Where(u => u.ID == UserID).First();
+            Role role = dbContext.Role.Where(r=>r.Name == "admin").FirstOrDefault();
+           
+                if (user.RoleID == role.ID)
+                {
+                    return true;
+                }
+           
+                
+
+            return false;
+        }
     }
 }

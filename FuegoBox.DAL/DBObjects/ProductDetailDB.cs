@@ -15,6 +15,7 @@ namespace FuegoBox.DAL.DBObjects
         FuegoEntities dbContext;
 
         IMapper P_DTOmapper, v_DTOmapper, cart_mapper;
+        IMapper SearchMapper;
         public ProductDetailDB()
         {
             dbContext = new FuegoEntities();
@@ -30,10 +31,15 @@ namespace FuegoBox.DAL.DBObjects
             {
                 cfg.CreateMap<CardDTO, Cart>();
             });
+            var productsSearchDTOConfig = new MapperConfiguration(cfg => {
+                cfg.CreateMap<Product,SearchDTO>();
+                cfg.CreateMap<Variant, VariantDTO>();
+            });
 
             v_DTOmapper = new Mapper(conf);
             P_DTOmapper = new Mapper(config);
             cart_mapper = new Mapper(configuration);
+            SearchMapper = new Mapper(productsSearchDTOConfig);
         }
         public ProductDetailDTO GetDetail(ProductDetailDTO productDetailDTO)
         {
@@ -76,6 +82,14 @@ namespace FuegoBox.DAL.DBObjects
 
 
 
+        }
+
+        public SearchResultsDTO GetProductsWithString(string SearchString)
+        {
+            IEnumerable<Product> searchResults = dbContext.Product.Where(p => p.Name.Contains(SearchString));
+            SearchResultsDTO newProductsSearchResultDTO = new SearchResultsDTO();
+            newProductsSearchResultDTO.Products = SearchMapper.Map<IEnumerable<Product>, IEnumerable<SearchDTO>>(searchResults);
+            return newProductsSearchResultDTO;
         }
 
         //public List<Cart> GetCardItems()

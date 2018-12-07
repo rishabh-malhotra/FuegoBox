@@ -29,20 +29,19 @@ namespace FuegoBox.DAL.DBObjects
             Category cat = dbContext.Category.Where(c => c.Name == catName).FirstOrDefault();
             idvalue = cat.ID;
             ProductDetailDTO p = new ProductDetailDTO();
-            IEnumerable<Product> product = dbContext.Product.Where(a => a.CategoryID == idvalue).Include(pa => pa.Variant);
-
-            //for (var i = 0; i < product.Count(); i++)
-            //{
-
-            //  p.ImageURL = product.ElementAt(i).Variant.ElementAt(i).VariantImage.ElementAt(i).ImageURL;
-
-
-
-            //}
-            //IEnumerable<Product> product1 = dbContext.Product.Include(i => i.Variant.Select(s => s.VariantImage).Select(a=>a.ImageURL));
+            IEnumerable<Product> product = dbContext.Product.Where(c => c.CategoryID == idvalue);
             CategoryDTO categoryDTO = new CategoryDTO();
-            categoryDTO.Products = P_DTOmapper.Map<IEnumerable<Product>, IEnumerable<ProductDetailDTO>>(product);
             categoryDTO.Name = "Books";
+            categoryDTO.Products = (from pi in dbContext.Product.Where(c => c.CategoryID == idvalue)
+                                    join v in dbContext.Variant on pi.ID equals v.ProductID
+                                    join img in dbContext.VariantImage on v.ID equals img.VariantID
+                                    select new ProductDetailDTO()
+                                    {
+                                        ImageURL = img.ImageURL,
+                                        Name = pi.Name
+                                    }).ToList();
+
+            //  categoryDTO.Products = P_DTOmapper.Map<IEnumerable<Product>, IEnumerable<ProductDetailDTO>>(product1);
             return categoryDTO;
         }
     }

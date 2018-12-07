@@ -13,6 +13,7 @@ namespace FuegoBox.DAL.DBObjects
     public class ProductDetailDB
     {
         FuegoEntities dbContext;
+        IMapper ProductSearchMapper;
 
         IMapper P_DTOmapper, v_DTOmapper, cart_mapper;
         IMapper SearchMapper;
@@ -32,9 +33,10 @@ namespace FuegoBox.DAL.DBObjects
                 cfg.CreateMap<CardDTO, Cart>();
             });
             var productsSearchDTOConfig = new MapperConfiguration(cfg => {
-                cfg.CreateMap<Product,SearchDTO>();
-                cfg.CreateMap<Variant, VariantDTO>();
+                cfg.CreateMap<Product, ProductDetailDTO>();
+
             });
+
 
             v_DTOmapper = new Mapper(conf);
             P_DTOmapper = new Mapper(config);
@@ -56,7 +58,7 @@ namespace FuegoBox.DAL.DBObjects
                 newBasicDTO.ListingPrice = vdto.ListingPrice;
                 newBasicDTO.CatName = cat.Name;
                 newBasicDTO.Discount = vdto.Discount;
-                newBasicDTO.img = vi.ImageURL;
+                newBasicDTO.ImageURL = vi.ImageURL;
                 return newBasicDTO;
             }
             return null;

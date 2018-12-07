@@ -1,5 +1,6 @@
 ﻿@model FuegoBox.Presentation.Models.CategoryModel
 
+
 @{
     ViewBag.Title = "Book";
 }
@@ -10,18 +11,19 @@
     <dl class="dl-horizontal"></dl>
 </div>
 <div class="row row-pb-md">
-    <ul >
-        @foreach (var product in Model.Products)
-        {
-            <div class="col-md-3 col-lg-3 mb-4 text-center">
-                <div class="product-entry border">
-
-                    <li>
-                        <a href="@Url.Action("PDetail", "Category", new { Name = product.Name})">@product.Name</a>
-                    </li>
-                    
+    @foreach (var product in Model.Products)
+    {
+        <div class="col-md-3 col-lg-3 mb-4 text-center">
+            <div class="product-entry border">
+                
+                <div>
+                    <img class="img-responsive" src="@product.ImageURL" width="150px" height="150px" />
                 </div>
+
+                <a href="@Url.Action("PDetail", "Category", new { Name = product.Name})">@product.Name</a>
+
+
             </div>
-        }
-    </ul>
+        </div>
+    }
 </div>

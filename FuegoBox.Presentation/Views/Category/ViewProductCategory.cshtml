@@ -1,32 +1,44 @@
-﻿@{
+﻿@model FuegoBox.Presentation.Models.CategoryModel
+@{
     ViewBag.Title = "ViewProductCategory";
 }
 
-
-<h2>ViewProductCategory</h2>
-
-<div>
-    <hr />
-    <dl class="dl-horizontal"></dl>
-</div>
 <div class="container">
-    <div class="row">
-        @foreach (var product in Model.Products)
+    <divx class="row">
+        @if (ViewBag.CategoryName != "Watch")
         {
-
-            <div class="col-md-3" style="margin-bottom:10px;">
-                <div class="card h-100">
-                    
-                    <div class="card-body" >
-                        <img src="@product.ImageURL" height="200" width="200" />
-                        <p class="card-title text-center"><a href="@Url.Action("PDetail", "Category", new { Name = product.Name})">@product.Name</a></p>
-                        <h6 class="card-text text-center" style="text-decoration:line-through">@product.ListingPrice</h6>
-                        <h6 class="card-text text-center" style="color:rebeccapurple">@product.Discount</h6>
-                    </div>
-
-                </div>
-
+            <div class="col-md-4 offset-4">
+                <h2>@ViewBag.CategoryName</h2>
             </div>
         }
-    </div>
+        else
+        {
+            <div class="col-md-4 offset-4">
+                <h2>Watches</h2>
+            </div>
+        }
+        <div>
+            <hr />
+            <dl class="dl-horizontal"></dl>
+        </div>
+
+        <div class="row">
+            @foreach (var product in Model.Products)
+            {
+
+                <div class="col-md-3 anchor" style="margin-bottom:10px;">
+                    <a class="card h-100 " href="@Url.Action("PDetail", "Category", new { Name = product.Name})">
+                        <div class="card-body">
+                            <img src="@product.ImageURL" height="200" width="200" />
+                            <h2 class="card-title text-center title">@product.Name</h2>
+                            <h6 class="card-text text-center" style="text-decoration:line-through">&#8377;@product.ListingPrice</h6>
+                            <h6 class="card-text text-center" style="color:rebeccapurple">&#8377;@product.Discount</h6>
+                        </div>
+
+                    </a>
+
+                </div>
+            }
+        </div>
+    </divx>
 </div>

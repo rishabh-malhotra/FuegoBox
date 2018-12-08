@@ -1,23 +1,28 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
+﻿
     
-/* Set padding to keep content from hitting the edges */
+
+.spacing{
+    margin-right:10px;
+}
 
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
-    
-
+   
+body{
+    padding-top:60px;
+}
+@media (max-width: 979px) {
+    body {
+        padding-top: 0px;
+    }
+}
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
 
-.dl-horizontal dt {
-    white-space: normal;
-}
+
     
 /* Set width on the form input elements since they're 100% wide by default */
 
@@ -27,7 +32,6 @@ textarea {
     max-width: 280px;
 }
 
-
 #fuego {
     margin-left: 20px;
     margin-right: 20px;
@@ -36,41 +40,38 @@ textarea {
     position: relative;
     text-transform: capitalize;
     color: #616161;
+    font-size:30px;
 }
 .anchor a {
     color: inherit;
     text-decoration: none;
 }
+.center-element {
+    text-align: center;
+}
+.p-detail{
+    margin:20px;
+    padding:10px;
+}
+.nav-style {
+    padding: 10px 12px;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 15px;
+    font-family: "Rokkitt", Georgia, serif;
+    font-weight: 400;
+}
+    .anchor a:hover {
+        
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+    }
+.title {
+    font-size: 20px;
+    text-transform: uppercase;
+}
 #fuego a{
     color:inherit;
     text-decoration:none;
 }
-.product-entry {
-    display: block;
-    height: 100% !important;
-}
-
-    .product-entry .prod-img {
-        display: block;
-    }
-
-    .product-entry .desc {
-        padding: 1.5em;
-    }
-
-        .product-entry .desc h2 {
-            text-transform: uppercase;
-            font-size: 18px;
-        }
-
-            .product-entry .desc h2 a {
-                color: #000;
-            }
-
-        .product-entry .desc span.price {
-            display: block;
-            font-family: "Rokkitt", Georgia, serif;
-            font-size: 18px;
-            color: #F6546A;
-            font-weight: 400;
-        }

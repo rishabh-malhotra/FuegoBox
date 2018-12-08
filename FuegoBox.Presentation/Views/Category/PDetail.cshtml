@@ -3,17 +3,17 @@
     ViewBag.Title = "PDetail";
 }
 <div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <img class="img-fluid" src="@Model.ImageURL" width="200" height="200" />
-        </div>
-        <div class="col-md-6">
-            <h4><b>Name:</b> @Model.Name</h4>
-            <p><b>Description:</b> @Model.Description</p>
-            <h5><b>Category:</b> @Model.CatName</h5>
-            <h6><b>Price:&#8377;</b> @Model.ListingPrice</h6>
-            <h6><b>Discount Price:&#8377;</b> @Model.Discount</h6>
-            <a href="@Url.Action("CardDetail", "Card", new { Name = Model.Name})">Add To Cart</a>
+    <div class="row p-detail">
+            <div class="col-md-4">
+                <img class="img-fluid" src="@Model.ImageURL" width="250" height="250" />
+            </div>
+            <div class="col-md-6">
+                <h2 class="title"><b>Name:</b> @Model.Name</h2>
+                <p><b>Description:</b> @Model.Description</p>
+                <h5><b>Category:</b> @Model.CatName</h5>
+                <h6><b>Price: &#8377;</b> @Model.ListingPrice</h6>
+                <h6><b>Discount Price: &#8377;</b> @Model.Discount</h6>
+                <a href="@Url.Action("CardDetail", "Card", new { Name = Model.Name})">Add To Cart</a>
+            </div>
         </div>
     </div>
-</div>

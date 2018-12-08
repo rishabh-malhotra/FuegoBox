@@ -1,0 +1,4 @@
+﻿insert into Product values(NEWID(),'eddc9bb6-fb6c-47e0-8f09-a05a6af8f751','Rado-456',3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.')
+insert into Product values(NEWID(),'eddc9bb6-fb6c-47e0-8f09-a05a6af8f751','Giordano-79',5,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.')
+insert into Product values(NEWID(),'eddc9bb6-fb6c-47e0-8f09-a05a6af8f751','Skagen-89',6,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.')
+insert into Product values(NEWID(),'eddc9bb6-fb6c-47e0-8f09-a05a6af8f751','Titan-879',4,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.')

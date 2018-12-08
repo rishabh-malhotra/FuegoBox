@@ -103,6 +103,7 @@ namespace FuegoBox.Presentation.Controllers
             CategoryDTO cdto = new CategoryDTO();
             cdto = categoryDetailContext.GetCategoryProduct(CategoryName);
             categorymodel = catMapper.Map<CategoryDTO, CategoryModel>(cdto);
+            ViewBag.CategoryName = CategoryName;
             return View(categorymodel);
         }
 

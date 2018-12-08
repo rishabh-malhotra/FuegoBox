@@ -100,7 +100,10 @@ namespace FuegoBox.DAL.DBObjects
                                                    {
                                                        ImageURL = img.ImageURL,
                                                        Name = pi.Name,
-                                                       Description = pi.Description
+                                                       Description = pi.Description,
+                                                       ListingPrice =v.ListingPrice,
+                                                       Discount=v.Discount
+
                                                    }).ToList();
             return newProductsSearchResultDTO;
         }

@@ -7,14 +7,18 @@
 
 
 <h2>Your Search:@ViewBag.searchString</h2>
-@foreach (var product in Model.Products)
-{
-<div class="card">
-    <div class="card-body">
-        <h4 class="anchor"><a href="@Url.Action("PDetail", "Category", new { Name = product.Name })">@product.Name</a></h4>
-        <p> Description: @product.Description</p>
-        <img src="@product.ImageURL" width="250px" height="250px" />
-    </div>
+<div class="row">
+    @foreach (var product in Model.Products)
+    {
+        <div class="col-md-3 anchor" style="margin-bottom:10px">
+            <a class="card  h-100" href="@Url.Action("PDetail", "Category", new { Name = product.Name })"> 
+                <div class="card-body">
+                    <img src="@product.ImageURL" width="200" height="200" />
+                        <h2 class="title">@product.Name</h2>
+                        <h6 class="card-text text-center" style="text-decoration:line-through">&#8377;@product.ListingPrice</h6>
+                        <h6 class="card-text text-center" style="color:rebeccapurple">&#8377;@product.Discount</h6>
+                </div>
+            </a>
+        </div>
+    }
 </div>
-
-}

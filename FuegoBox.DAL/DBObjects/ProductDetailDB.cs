@@ -61,33 +61,14 @@ namespace FuegoBox.DAL.DBObjects
                 newBasicDTO.CatName = cat.Name;
                 newBasicDTO.Discount = vdto.Discount;
                 newBasicDTO.ImageURL = vi.ImageURL;
+                newBasicDTO.Inventory =variant.Inventory;
+                newBasicDTO.QuantitySold=variant.QuantitySold;
+                
                 return newBasicDTO;
             }
             return null;
         }
-        public CardDTO AddProduct(ProductDetailDTO pdto)
-        {
-            Product product = dbContext.Product.Where(a => a.Name == pdto.Name).FirstOrDefault();
-            Variant variant = dbContext.Variant.Where(s => s.ProductID == product.ID).FirstOrDefault();
-            // ProductDetailDTO newBasicDTO = P_DTOmapper.Map<Product, ProductDetailDTO>(product);
-            CardDTO cartdto = new CardDTO();
-            Cart cart = new Cart();
-            // Cart cart = cart_mapper.Map<CardDTO, Cart>(cartdto);
-            cart.ID = Guid.NewGuid();
-            cart.VariantID = variant.ID;
-            cart.SellingPrice = variant.Discount;
-            cart.Qty = 2;
-            cartdto.VariantID = variant.ID;
-            cartdto.SellingPrice = variant.Discount;
-
-            dbContext.Cart.Add(cart);
-            dbContext.SaveChanges();
-            return cartdto;
-
-
-
-        }
-
+       
         public ProductSearchResultDTO GetProductSearch(string searchString)
         {
             IEnumerable<Product> searchResults = dbContext.Product.Where(p => p.Name.Contains(searchString));
@@ -116,6 +97,20 @@ namespace FuegoBox.DAL.DBObjects
 
         //}
 
-
-    }
+        public ProductDetailDTO AddProduct(ProductDetailDTO pdto)
+        {
+            Product product = dbContext.Product.Where(a => a.Name == pdto.Name).FirstOrDefault();
+            Variant variant = dbContext.Variant.Where(s => s.ProductID == product.ID).FirstOrDefault();
+            ProductDetailDTO cartdto = new ProductDetailDTO();
+            Cart cart = new Cart();
+            cart.ID = Guid.NewGuid();
+            cart.VariantID = variant.ID;
+            cart.SellingPrice = variant.Discount;
+            cart.Qty = 2;
+            cartdto.Name = product.Name;
+            dbContext.Cart.Add(cart);
+            dbContext.SaveChanges();
+            return cartdto;
+        }
+        }
 }

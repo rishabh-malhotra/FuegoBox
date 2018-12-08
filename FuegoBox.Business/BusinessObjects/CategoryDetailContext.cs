@@ -21,5 +21,10 @@ namespace FuegoBox.Business.BusinessObjects
             CategoryDTO catproductDTO = catDBObject.Getproduct(catName);
             return catproductDTO;
         }
+        public CategoryDTO GetCategoryOnHomePage()
+        {
+            CategoryDTO cdto = catDBObject.GetCategoryonHomePage();
+            return cdto;
+        }
     }
 }

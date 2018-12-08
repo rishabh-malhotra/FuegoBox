@@ -16,6 +16,8 @@ namespace FuegoBox.Presentation.Models
         public double ListingPrice { get; set; }
         public double Discount { get; set; }
         public string CatName { get; set; }
+        public int QuantitySold { get; set; }
+        public int Inventory { get; set; }
 
     }
 }

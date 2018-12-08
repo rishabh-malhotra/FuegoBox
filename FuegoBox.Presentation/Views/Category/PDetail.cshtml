@@ -13,6 +13,7 @@
                 <h5><b>Category:</b> @Model.CatName</h5>
                 <h6><b>Price: &#8377;</b> @Model.ListingPrice</h6>
                 <h6><b>Discount Price: &#8377;</b> @Model.Discount</h6>
+                <h6><b>@(Model.Inventory-Model.QuantitySold)</b> left in stock.</h6>
                 <a href="@Url.Action("CardDetail", "Card", new { Name = Model.Name})">Add To Cart</a>
             </div>
         </div>

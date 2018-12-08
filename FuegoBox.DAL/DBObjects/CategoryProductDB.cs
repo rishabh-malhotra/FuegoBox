@@ -13,7 +13,7 @@ namespace FuegoBox.DAL.DBObjects
     public class CategoryProductDB
     {
         FuegoEntities dbContext;
-        IMapper P_DTOmapper, c_Mapper;
+        IMapper P_DTOmapper;
         public CategoryProductDB()
         {
             dbContext = new FuegoEntities();
@@ -39,13 +39,38 @@ namespace FuegoBox.DAL.DBObjects
                                     {
                                         ImageURL = img.ImageURL,
                                         Name = pi.Name,
-                                        Discount=v.Discount,
-                                        ListingPrice=v.ListingPrice
-   
+                                        Discount = v.Discount,
+                                        ListingPrice = v.ListingPrice
+
                                     }).ToList();
 
             //  categoryDTO.Products = P_DTOmapper.Map<IEnumerable<Product>, IEnumerable<ProductDetailDTO>>(product1);
             return categoryDTO;
+        }
+        public CategoryDTO GetCategoryonHomePage()
+        {
+            CategoryDTO cd = new CategoryDTO();
+            var categories = dbContext.Category.Include(abc => abc.Product).OrderByDescending(cdd => cdd.ProductsSold).ToList().Take(3);
+            foreach (var cato in categories)
+            {
+                cd.Products = (from pi in dbContext.Product
+                               where pi.CategoryID == cato.ID
+                               join v in dbContext.Variant on pi.ID equals v.ProductID
+                               orderby v.QuantitySold descending
+                               select new ProductDetailDTO()
+                               {
+                                   CatName = cato.Name,
+                                   Name = pi.Name,
+                                   Description = pi.Description,
+                                   OrderLimit = 0,
+                                   ListingPrice = v.ListingPrice,
+                                   Discount = v.Discount,
+                                   ImageURL = "abc"
+
+                               }).ToList().Take(3);
+            }
+                return cd;
+
         }
     }
 }

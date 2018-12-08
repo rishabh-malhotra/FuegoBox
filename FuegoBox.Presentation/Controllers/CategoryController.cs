@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FuegoBox.Business.BusinessObjects;
+using FuegoBox.Presentation.ActionFilters;
 using FuegoBox.Presentation.Models;
 using FuegoBox.Shared.DTO.Category;
 using FuegoBox.Shared.DTO.Product;
@@ -48,7 +49,7 @@ namespace FuegoBox.Presentation.Controllers
         }
         
 
-
+        [UserAuthenticationFilter]
         public ActionResult PDetail([Bind(Include = "Name")] ProductDetail productDetail)
         {
             try

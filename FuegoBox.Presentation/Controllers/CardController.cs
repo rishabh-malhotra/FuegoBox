@@ -14,7 +14,7 @@ namespace FuegoBox.Presentation.Controllers
     {
         // GET: Card
 
-        IMapper productmapper, cardMapper;
+        IMapper productmapper;
 
         ProductDetailContext productDetailContext;
 
@@ -28,12 +28,10 @@ namespace FuegoBox.Presentation.Controllers
                 cfg.CreateMap<ProductDetail, ProductDetailDTO>();
             });
 
-            var confi = new MapperConfiguration(cfg => {
-                cfg.CreateMap<CardDTO, CardModel>();
-            });
+            
 
             productmapper = new Mapper(config);
-            cardMapper = new Mapper(confi);
+            
 
 
         }
@@ -41,8 +39,8 @@ namespace FuegoBox.Presentation.Controllers
 
         {
             ProductDetailDTO productDetailDTO = productmapper.Map<ProductDetail, ProductDetailDTO>(productDetail);
-            CardDTO prodDTO = productDetailContext.productAddToCart(productDetailDTO);
-            CardModel p = cardMapper.Map<CardDTO, CardModel>(prodDTO);
+            ProductDetailDTO prodDetailDTO = productDetailContext.productAddToCart(productDetailDTO);
+            ProductDetail p = productmapper.Map<ProductDetailDTO, ProductDetail>(prodDetailDTO);
             return View(p);
 
 

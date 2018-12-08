@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="cacf9507ae9e421db9e9be6e2f1ea2fd" Name="Diagram1">
+      <Diagram DiagramId="cacf9507ae9e421db9e9be6e2f1ea2fd" Name="Diagram1" ZoomLevel="57">
         <EntityTypeShape EntityType="FuegoModel.Address" Width="1.5" PointX="6" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FuegoModel.Cart" Width="1.5" PointX="7.5" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FuegoModel.Category" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
@@ -35,6 +35,8 @@
         <AssociationConnector Association="FuegoModel.FK_VariantProperty_VariantID" ManuallyRouted="false" />
         <AssociationConnector Association="FuegoModel.FK_VariantProperty_PropertyValueID" ManuallyRouted="false" />
         <AssociationConnector Association="FuegoModel.UserAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="FuegoModel.FK_AddressUser" />
+        <AssociationConnector Association="FuegoModel.FK_CartUser" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

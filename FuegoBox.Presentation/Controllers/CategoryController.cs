@@ -18,7 +18,7 @@ namespace FuegoBox.Presentation.Controllers
         IMapper catMapper;
         ProductDetailContext productDetailContext;
         CategoryDetailContext categoryDetailContext;
-        IMapper SearchResultVMMapper;
+        IMapper ProductsSearchResultVMMapper;
 
         public CategoryController()
         {
@@ -36,29 +36,17 @@ namespace FuegoBox.Presentation.Controllers
                 cfg.CreateMap<CategoryDTO, CategoryModel>();
             });
 
-           var productSearchResultDTOConfig = new MapperConfiguration(cfg =>
+            var conf1 = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<ProductDetailDTO, ProductModel>();
-                cfg.CreateMap<VariantDTO, VariantModel>();
-                cfg.CreateMap<SearchResultsDTO, SearchResultsModel>();
+                cfg.CreateMap<ProductSearchResultDTO, ProductsSearchModel>();
             });
 
             productmapper = new Mapper(config);
             catMapper = new Mapper(conf);
-            SearchResultVMMapper = new Mapper(productSearchResultDTOConfig);
+            ProductsSearchResultVMMapper = new Mapper(conf1);
 
         }
-
-        public ActionResult Book()
-        {
-            String catName = "Books";
-            CategoryModel categorymodel = new CategoryModel();
-            CategoryDTO cdto = new CategoryDTO();
-            cdto = categoryDetailContext.GetCategoryProduct(catName);
-            categorymodel = catMapper.Map<CategoryDTO, CategoryModel>(cdto);
-            return View(categorymodel);
-
-        }
+        
 
 
         public ActionResult PDetail([Bind(Include = "Name")] ProductDetail productDetail)
@@ -78,49 +66,34 @@ namespace FuegoBox.Presentation.Controllers
             }
             return View();
         }
-        public ActionResult Watches()
-        {
-            return View();
 
-        }
-        public ActionResult Clothing()
-        {
-            return View();
-        }
-        public ActionResult Television()
-        {
-            return View();
-        }
-        public ActionResult Mobile()
-        {
-            return View();
-        }
-        public ActionResult Footwear()
-        {
-            return View();
-        }
 
-        
-        public ActionResult SearchResults(string SearchString)
+        public ActionResult SearchResult(string searchString)
         {
-            if (String.IsNullOrEmpty(SearchString))
+            if (Session["UserID"] != null)
             {
-                ViewBag.SearchString = "Search String Empty";
-                return View();//TODO
+                ViewBag.IsLoggedIn = "True";
             }
-            SearchResultsDTO newProductsSearchResultDTO = new SearchResultsDTO();
-            SearchResultsModel viewModel = new SearchResultsModel();
+            if (String.IsNullOrEmpty(searchString))
+            {
+
+                return View("Search");//TODO
+            }
             try
             {
-                newProductsSearchResultDTO = productDetailContext.GetProductsWithString(SearchString);
-                viewModel = SearchResultVMMapper.Map<SearchResultsDTO, SearchResultsModel>(newProductsSearchResultDTO);
-                ViewBag.SearchString = SearchString;
+                ProductSearchResultDTO newProductsSearchResultDTO = new ProductSearchResultDTO();
+                ProductsSearchModel viewModel = new ProductsSearchModel();
+                CategoryDTO cd = new CategoryDTO();
+                newProductsSearchResultDTO = productDetailContext.GetProductwithString(searchString);
+                viewModel = ProductsSearchResultVMMapper.Map<ProductSearchResultDTO, ProductsSearchModel>(newProductsSearchResultDTO);
+                ViewBag.searchString = searchString;
                 return View(viewModel);
             }
             catch (Exception ex)
             {
-                return View("Internal Error");
+                ModelState.AddModelError("", ex + ":Exception occured");
             }
+            return View();
         }
 
         public ActionResult ViewProductCategory(string CategoryName)

@@ -2,21 +2,25 @@
     padding-top: 50px;
     padding-bottom: 20px;
 }
-
+    
 /* Set padding to keep content from hitting the edges */
+
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
+    
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
+
 .dl-horizontal dt {
     white-space: normal;
 }
-
+    
 /* Set width on the form input elements since they're 100% wide by default */
+
 input,
 select,
 textarea {
@@ -25,16 +29,22 @@ textarea {
 
 
 #fuego {
-    margin-left:20px;
-    margin-right:20px;
+    margin-left: 20px;
+    margin-right: 20px;
     font-weight: 800;
     /*color: #E9967A;*/
     position: relative;
-    text-transform:capitalize;
-
-
+    text-transform: capitalize;
+    color: #616161;
 }
-
+.anchor a {
+    color: inherit;
+    text-decoration: none;
+}
+#fuego a{
+    color:inherit;
+    text-decoration:none;
+}
 .product-entry {
     display: block;
     height: 100% !important;
@@ -64,4 +74,3 @@ textarea {
             color: #F6546A;
             font-weight: 400;
         }
-

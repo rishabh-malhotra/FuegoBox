@@ -16,6 +16,6 @@ namespace FuegoBox.Shared.DTO.Product
         public double ListingPrice { get; set; }
         public double Discount { get; set; }
         public string ImageURL { get; set; }
-        public string img { get; set; }
+        
     }
 }

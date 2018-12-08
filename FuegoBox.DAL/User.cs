@@ -18,6 +18,8 @@ namespace FuegoBox.DAL
         public User()
         {
             this.Order = new HashSet<Order>();
+            this.Address1 = new HashSet<Address>();
+            this.Cart = new HashSet<Cart>();
         }
     
         public System.Guid ID { get; set; }
@@ -31,5 +33,9 @@ namespace FuegoBox.DAL
         public virtual ICollection<Order> Order { get; set; }
         public virtual Role Role { get; set; }
         public virtual Address Address { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Address> Address1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cart> Cart { get; set; }
     }
 }

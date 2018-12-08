@@ -2,6 +2,7 @@
 using FuegoBox.DAL.DBObjects;
 using FuegoBox.DAL.Exceptions;
 using FuegoBox.Shared.DTO.Product;
+using FuegoBox.Shared.DTO.Category;
 using FuegoBox.Business.Exceptions;
 using System;
 using System.Collections.Generic;
@@ -30,18 +31,10 @@ namespace FuegoBox.Business.BusinessObjects
             CardDTO cDTO = ProductDBObject.AddProduct(productDetailDTO);
             return cDTO;
         }
-        public SearchResultsDTO GetProductsWithString(string SearchString)
+        public ProductSearchResultDTO GetProductwithString(string searchString)
         {
-            SearchResultsDTO newProductsSearchResultDTO = new SearchResultsDTO();
-            try
-            {
-                newProductsSearchResultDTO = ProductDBObject.GetProductsWithString(SearchString);
-                return newProductsSearchResultDTO;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Unknown Error");
-            }
+            ProductSearchResultDTO produDetailDTO = ProductDBObject.GetProductSearch(searchString);
+            return produDetailDTO;
         }
 
     }

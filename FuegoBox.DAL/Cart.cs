@@ -18,7 +18,9 @@ namespace FuegoBox.DAL
         public System.Guid VariantID { get; set; }
         public double SellingPrice { get; set; }
         public int Qty { get; set; }
+        public System.Guid UserID { get; set; }
     
         public virtual Variant Variant { get; set; }
+        public virtual User User { get; set; }
     }
 }

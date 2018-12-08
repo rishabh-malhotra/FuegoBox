@@ -49,11 +49,12 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="DTO\Category\CategoryDTO.cs" />
+    <Compile Include="DTO\Order\AddressDTO.cs" />
     <Compile Include="DTO\Product\CardDTO.cs" />
     <Compile Include="DTO\Product\ImageDTO.cs" />
     <Compile Include="DTO\Product\ProductDetailDTO.cs" />
+    <Compile Include="DTO\Product\ProductSearchResultDTO.cs" />
     <Compile Include="DTO\Product\SearchDTO.cs" />
-    <Compile Include="DTO\Product\SearchResultsDTO.cs" />
     <Compile Include="DTO\Product\VariantDTO.cs" />
     <Compile Include="DTO\User\UserBasicDTO.cs" />
     <Compile Include="DTO\User\UserLoginDTO.cs" />

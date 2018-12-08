@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace FuegoBox.Shared.DTO.Product
 {
-    public class SearchResultsDTO
+    public class ProductSearchResultDTO
     {
-        public IEnumerable<SearchDTO> Products { get; set; }
-
+        public IEnumerable<ProductDetailDTO> Products { get; set; }
     }
 }

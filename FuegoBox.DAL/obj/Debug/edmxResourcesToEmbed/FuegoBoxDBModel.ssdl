@@ -8,9 +8,7 @@
     <Property Name="AddressLine1" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="AddressLine2" Type="nvarchar" MaxLength="100" />
     <Property Name="Pin" Type="int" Nullable="false" />
-    <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="State" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Country" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="Cart">
     <Key>
@@ -20,6 +18,7 @@
     <Property Name="VariantID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="SellingPrice" Type="float" Nullable="false" />
     <Property Name="Qty" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="Category">
     <Key>
@@ -143,6 +142,30 @@
     <Property Name="PropertyID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ValueID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
+  <Association Name="FK_AddressUser">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartUser">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_CartVariant">
     <End Role="Variant" Type="Self.Variant" Multiplicity="1" />
     <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
@@ -352,6 +375,14 @@
     <EntitySet Name="VariantImage" EntityType="Self.VariantImage" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VariantProperty" EntityType="Self.VariantProperty" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VariantPropertyValue" EntityType="Self.VariantPropertyValue" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AddressUser" Association="Self.FK_AddressUser">
+      <End Role="User" EntitySet="User" />
+      <End Role="Address" EntitySet="Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartUser" Association="Self.FK_CartUser">
+      <End Role="User" EntitySet="User" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
     <AssociationSet Name="FK_CartVariant" Association="Self.FK_CartVariant">
       <End Role="Variant" EntitySet="Variant" />
       <End Role="Cart" EntitySet="Cart" />

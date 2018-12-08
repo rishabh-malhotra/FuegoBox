@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObjects\CategoryDetailContext.cs" />
+    <Compile Include="BusinessObjects\OrderBusinessContext.cs" />
     <Compile Include="BusinessObjects\ProductDetailContext.cs" />
     <Compile Include="BusinessObjects\UserBusinessContext.cs" />
     <Compile Include="Class1.cs" />

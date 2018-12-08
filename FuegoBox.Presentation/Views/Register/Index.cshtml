@@ -9,63 +9,59 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="container" style="margin-top:30px;background-color:unset">
-        <form class="well form-horizontal">
-            <fieldset>
-                <div>
-                    <legend>
-                        <center>
-                        <h2>Sign up on Fuego Box</h2>
-                        </center>
-                    </legend>
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Name</label>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        <div class="bg-light">
+            <form class="well form-horizontal">
+                <fieldset>
+                    <h2 class="text-center">Sign up on Fuego Box</h2>
+                    <div class="col-md-6 offset-4">
+                        <br />
+                            <div class="form-group">
+                                <label class="col-md-4 control-label"><i class="fa fa-user" aria-hidden="true"></i> Name</label>
+                                <span class="input-group-addon"></span>
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+
+                            </div>
+                        
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"><i class="fa fa-envelope" aria-hidden="true"></i> E-Mail</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"></span>
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"><i class="fa fa-qrcode" aria-hidden="true"></i> Password</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"></span>
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"><i class="fa fa-phone" aria-hidden="true"></i> Contact No.</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"></span>
+                                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <!-- Select Basic -->
+                        <!-- Success message -->
+                        <!-- Button -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"></label>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-warning">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Text input-->
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label">E-Mail</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Password</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-qrcode"></i></span>
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Contact No.</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <!-- Select Basic -->
-                <!-- Success message -->
-                <!-- Button -->
-                <div class="form-group">
-                    <label class="col-md-4 control-label"></label>
-                    <div class="col-md-4">
-                        <br>
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
-                    </div>
-                </div>
-            </fieldset>
-        </form>
+                </fieldset>
+            </form>
+        </div>
         @Html.ActionLink("Login", "Index", "Login")
     </div>
 }

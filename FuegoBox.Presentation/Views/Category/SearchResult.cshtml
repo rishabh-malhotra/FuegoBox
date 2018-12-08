@@ -1,0 +1,20 @@
+﻿@model FuegoBox.Presentation.Models.ProductsSearchModel
+
+@{
+    ViewBag.Title = "SearchResult";
+}
+
+
+
+<h2>Your Search:@ViewBag.searchString</h2>
+@foreach (var product in Model.Products)
+{
+<div class="card">
+    <div class="card-body">
+        <h4 class="anchor"><a href="@Url.Action("PDetail", "Category", new { Name = product.Name })">@product.Name</a></h4>
+        <p> Description: @product.Description</p>
+        <img src="@product.ImageURL" width="250px" height="250px" />
+    </div>
+</div>
+
+}

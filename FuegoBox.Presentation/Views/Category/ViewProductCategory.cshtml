@@ -5,21 +5,28 @@
 
 <h2>ViewProductCategory</h2>
 
-    <div>
-        <hr />
-        <dl class="dl-horizontal"></dl>
-    </div>
-
-    <div class="row row-pb-md">
+<div>
+    <hr />
+    <dl class="dl-horizontal"></dl>
+</div>
+<div class="container">
+    <div class="row">
         @foreach (var product in Model.Products)
         {
-           
-            <div class="col-md-3 col-lg-3 mb-4 text-center">
-                <div class="product-entry border">
-                    <div
-                    <h2><a href="@Url.Action("PDetail", "Category", new { Name = product.Name})">@product.Name</a></h2>
-                    <img src="@product.ImageURL" width="150px" height="150px" />
+
+            <div class="col-md-3" style="margin-bottom:10px;">
+                <div class="card h-100">
+                    
+                    <div class="card-body" >
+                        <img src="@product.ImageURL" height="200" width="200" />
+                        <p class="card-title text-center"><a href="@Url.Action("PDetail", "Category", new { Name = product.Name})">@product.Name</a></p>
+                        <h6 class="card-text text-center" style="text-decoration:line-through">@product.ListingPrice</h6>
+                        <h6 class="card-text text-center" style="color:rebeccapurple">@product.Discount</h6>
+                    </div>
+
                 </div>
+
             </div>
         }
     </div>
+</div>

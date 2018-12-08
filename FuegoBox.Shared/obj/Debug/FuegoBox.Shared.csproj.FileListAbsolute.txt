@@ -21,3 +21,4 @@ C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Shared\obj\Debug\FuegoBo
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Shared\obj\Debug\FuegoBox.Shared.csproj.CopyComplete
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Shared\obj\Debug\FuegoBox.Shared.dll
 C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Shared\obj\Debug\FuegoBox.Shared.pdb
+C:\Users\rishabhmalhotra\source\repos\FuegoBox\FuegoBox.Shared\obj\Debug\FuegoBox.Shared.csprojAssemblyReference.cache

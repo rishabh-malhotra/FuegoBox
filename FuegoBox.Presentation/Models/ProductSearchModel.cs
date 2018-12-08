@@ -5,8 +5,8 @@ using System.Web;
 
 namespace FuegoBox.Presentation.Models
 {
-    public class SearchResultsModel
+    public class ProductsSearchModel
     {
-        public IEnumerable<SearchModel> Product;
+        public IEnumerable<ProductDetail> Products;
     }
 }

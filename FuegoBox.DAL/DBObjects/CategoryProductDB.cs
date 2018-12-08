@@ -38,7 +38,10 @@ namespace FuegoBox.DAL.DBObjects
                                     select new ProductDetailDTO()
                                     {
                                         ImageURL = img.ImageURL,
-                                        Name = pi.Name
+                                        Name = pi.Name,
+                                        Discount=v.Discount,
+                                        ListingPrice=v.ListingPrice
+   
                                     }).ToList();
 
             //  categoryDTO.Products = P_DTOmapper.Map<IEnumerable<Product>, IEnumerable<ProductDetailDTO>>(product1);

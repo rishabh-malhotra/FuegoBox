@@ -4,19 +4,18 @@
     <EntitySetMapping Name="Address">
       <EntityTypeMapping TypeName="FuegoModel.Address">
         <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
           <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
           <ScalarProperty Name="Pin" ColumnName="Pin" />
-          <ScalarProperty Name="City" ColumnName="City" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Country" ColumnName="Country" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Cart">
       <EntityTypeMapping TypeName="FuegoModel.Cart">
         <MappingFragment StoreEntitySet="Cart">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="VariantID" ColumnName="VariantID" />
           <ScalarProperty Name="SellingPrice" ColumnName="SellingPrice" />

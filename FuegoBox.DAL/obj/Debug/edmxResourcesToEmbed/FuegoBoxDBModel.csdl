@@ -8,11 +8,10 @@
     <Property Name="AddressLine1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="AddressLine2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Pin" Type="Int32" Nullable="false" />
-    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Order" Relationship="Self.FK_OrderAddressID" FromRole="Address" ToRole="Order" />
     <NavigationProperty Name="User" Relationship="Self.UserAddress" FromRole="Address" ToRole="User" />
+    <Property Name="UserID" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="User1" Relationship="FuegoModel.FK_AddressUser" FromRole="Address" ToRole="User" />
   </EntityType>
   <EntityType Name="Cart">
     <Key>
@@ -23,6 +22,8 @@
     <Property Name="SellingPrice" Type="Double" Nullable="false" />
     <Property Name="Qty" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Variant" Relationship="Self.FK_CartVariant" FromRole="Cart" ToRole="Variant" />
+    <Property Name="UserID" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="FuegoModel.FK_CartUser" FromRole="Cart" ToRole="User" />
   </EntityType>
   <EntityType Name="Category">
     <Key>
@@ -111,6 +112,8 @@
     <NavigationProperty Name="Order" Relationship="Self.FK_OrderUser" FromRole="User" ToRole="Order" />
     <NavigationProperty Name="Role" Relationship="Self.FK_User" FromRole="User" ToRole="Role" />
     <NavigationProperty Name="Address" Relationship="Self.UserAddress" FromRole="User" ToRole="Address" />
+    <NavigationProperty Name="Address1" Relationship="FuegoModel.FK_AddressUser" FromRole="User" ToRole="Address" />
+    <NavigationProperty Name="Cart" Relationship="FuegoModel.FK_CartUser" FromRole="User" ToRole="Cart" />
   </EntityType>
   <EntityType Name="Value">
     <Key>
@@ -414,5 +417,37 @@
       <End Role="Address" EntitySet="Address" />
       <End Role="User" EntitySet="User" />
     </AssociationSet>
+    <AssociationSet Name="FK_AddressUser" Association="FuegoModel.FK_AddressUser">
+      <End Role="User" EntitySet="User" />
+      <End Role="Address" EntitySet="Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartUser" Association="FuegoModel.FK_CartUser">
+      <End Role="User" EntitySet="User" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK_AddressUser">
+    <End Type="FuegoModel.User" Role="User" Multiplicity="1" />
+    <End Type="FuegoModel.Address" Role="Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartUser">
+    <End Type="FuegoModel.User" Role="User" Multiplicity="1" />
+    <End Type="FuegoModel.Cart" Role="Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

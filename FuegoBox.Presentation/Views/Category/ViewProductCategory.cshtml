@@ -28,9 +28,9 @@
 
                 <div class="col-md-3 anchor" style="margin-bottom:10px;">
                     <a class="card h-100 " href="@Url.Action("PDetail", "Category", new { Name = product.Name})">
-                        <div class="card-body">
+                        <div class="card-body card-style">
                             <img src="@product.ImageURL" height="200" width="200" />
-                            <h2 class="card-title text-center title">@product.Name</h2>
+                            <h2 class="card-title text-center">@product.Name</h2>
                             <h6 class="card-text text-center" style="text-decoration:line-through">&#8377;@product.ListingPrice</h6>
                             <h6 class="card-text text-center" style="color:rebeccapurple">&#8377;@product.Discount</h6>
                         </div>

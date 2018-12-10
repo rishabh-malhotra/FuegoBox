@@ -164,7 +164,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\CardController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -175,7 +175,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AddressModel.cs" />
-    <Compile Include="Models\CardModel.cs" />
+    <Compile Include="Models\CartMessageModel.cs" />
+    <Compile Include="Models\CartModel.cs" />
+    <Compile Include="Models\CartVariantModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -277,7 +279,7 @@
     <Content Include="Views\Category\SearchResult.cshtml" />
     <Content Include="Views\Category\Book.cshtml" />
     <Content Include="Views\Category\PDetail.cshtml" />
-    <Content Include="Views\Card\CardDetail.cshtml" />
+    <Content Include="Views\Cart\CartDetail.cshtml" />
     <Content Include="Views\User\Admin.cshtml" />
     <Content Include="Views\User\NotAdmin.cshtml" />
     <Content Include="Views\Category\ViewProductCategory.cshtml" />
@@ -294,6 +296,8 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Category\Search.cshtml" />
+    <Content Include="Views\Cart\AddToCart.cshtml" />
+    <Content Include="Views\Shared\InternalError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

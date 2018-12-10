@@ -57,7 +57,7 @@ namespace FuegoBox.Presentation.Controllers
                 ProductDetailDTO productDetailDTO = productmapper.Map<ProductDetail, ProductDetailDTO>(productDetail);
                 ProductDetailDTO prodDetailDTO = productDetailContext.GetProductDetail(productDetailDTO);
                 ProductDetail p = productmapper.Map<ProductDetailDTO, ProductDetail>(prodDetailDTO);
-               // prodDetailDTO.ImageURL=
+              
                 return View(p);
             }
             catch (Exception ex)

@@ -81,6 +81,7 @@
       <DependentUpon>FuegoBoxDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="DBObjects\CartDatabaseContext.cs" />
     <Compile Include="DBObjects\CategoryProductDB.cs" />
     <Compile Include="DBObjects\ProductDetailDB.cs" />
     <Compile Include="DBObjects\UserDetail.cs" />

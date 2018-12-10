@@ -1,0 +1,31 @@
+﻿@model FuegoBox.Presentation.Models.CartMessageModel
+@{
+    ViewBag.Title = "AddItem";
+    if (Model.IsLoggedIn == true)
+    {
+        ViewBag.IsLoggedIn = true;
+    }
+}
+
+<div class="row">
+    @if (Model.SuccessMessage != null)
+    {
+        <div class="col-md-6 offset-3">
+            <p>@Model.SuccessMessage</p>
+        </div>
+    }
+    else
+    {
+        <div class="col-md-6 offset-3">
+            <ul>
+                @foreach (var msg in Model.ErrorMessages)
+                {
+                    <li><p>@msg</p></li>
+                }
+            </ul>
+        </div>
+    }
+</div>
+<p>
+    @Html.ActionLink("Back to previous page", null, null, null, new { href = Request.UrlReferrer, @class = "btn btn-default" })
+</p>

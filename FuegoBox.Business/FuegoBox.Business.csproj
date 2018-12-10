@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessObjects\CartBusinessContext.cs" />
     <Compile Include="BusinessObjects\CategoryDetailContext.cs" />
     <Compile Include="BusinessObjects\OrderBusinessContext.cs" />
     <Compile Include="BusinessObjects\ProductDetailContext.cs" />

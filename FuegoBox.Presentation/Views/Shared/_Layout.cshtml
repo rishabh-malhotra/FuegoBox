@@ -25,6 +25,7 @@
                 @if (Session["UserID"] != null)
                 {
                     <li class="nav-item spacing nav-link anchor" ><i class="fa fa-sign-out" aria-hidden="true"></i>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                    <li class="nav-item spacing nav-link anchor"><i class="fa fa-file" aria-hidden="true"></i>My Orders</li>
                     <li class="nav-item spacing nav-link anchor"><h6 style="color:black">@Session["name"]</h6></li>
                 }
                 else
@@ -32,6 +33,7 @@
 
                     <li class="nav-item spacing anchor nav-link"><i class="fa fa-sign-in" aria-hidden="true"></i>@Html.ActionLink("Login", "Index", "Login")</li>
                     <li class="nav-item spacing anchor nav-link"><i class="fa fa-user" aria-hidden="true"></i>@Html.ActionLink("Register", "Index", "Register")</li>
+                    
                 }
             </ul>
         </div>
@@ -45,8 +47,13 @@
                 <li class="nav-item anchor"><a class="nav-link" href="@Url.Action("ViewProductCategory", "Category", new { CategoryName = "Television" })">TV</a></li>
                 <li class="nav-item anchor"><a class="nav-link" href="@Url.Action("ViewProductCategory", "Category", new { CategoryName = "Mobile" })">Mobile</a></li>
                 <li class="nav-item anchor"><a class="nav-link" href="@Url.Action("ViewProductCategory", "Category", new { CategoryName = "Footwear" })">Footwear</a></li>
+                
             </ul>
-        
+            <div class="float-right ">
+                <ul class="nav navbar-right nav-style">
+                    <li class="nav-item anchor"><a class="nav-link" href="@Url.Action("CartDetail","Cart")"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Cart</a></li>
+                </ul>
+            </div>
     </nav>
     
     <div class="container body-content" style="height:80px">

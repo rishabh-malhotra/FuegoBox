@@ -31,7 +31,7 @@ namespace FuegoBox.DAL.DBObjects
             ProductDetailDTO p = new ProductDetailDTO();
             IEnumerable<Product> product = dbContext.Product.Where(c => c.CategoryID == idvalue);
             CategoryDTO categoryDTO = new CategoryDTO();
-            categoryDTO.Name = "Books";
+            categoryDTO.Name = catName;
             categoryDTO.Products = (from pi in dbContext.Product.Where(c => c.CategoryID == idvalue)
                                     join v in dbContext.Variant on pi.ID equals v.ProductID
                                     join img in dbContext.VariantImage on v.ID equals img.VariantID

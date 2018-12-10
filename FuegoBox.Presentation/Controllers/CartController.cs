@@ -116,6 +116,11 @@ namespace FuegoBox.Presentation.Controllers
                 return View(cartMessageModel);
             }
         }
+        public ActionResult RemoveItem(Guid VariantID)
+        {
+            cartBusinessContext.RemoveItem(new Guid(Session["UserID"].ToString()), VariantID);
+            return RedirectToAction("CartDetail");
+        }
 
     }
 }

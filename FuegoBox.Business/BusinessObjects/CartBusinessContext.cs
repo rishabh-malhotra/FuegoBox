@@ -41,6 +41,10 @@ namespace FuegoBox.Business.BusinessObjects
             newCartsDTO.SubTotal = subtotal;
             return newCartsDTO;
         }
+        public void RemoveItem(Guid UserID, Guid VariantID)
+        {
+            cartDatabaseContext.RemoveItem(UserID, VariantID);
+        }
 
     }
 }

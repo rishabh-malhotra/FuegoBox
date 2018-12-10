@@ -4,12 +4,24 @@
     ViewBag.Title = "CartDetail";
 }
 <h1>details of cart</h1>
-@foreach (var cartDetail in Model.CartItems)
-{
-    <h2>@cartDetail.Qty</h2>
-    <h2>@cartDetail.Variant.Discount</h2>
-    <img src="@cartDetail.Variant.Product.ImageURL" height="150" width="150" />
-    <h2>@cartDetail.Variant.Product.Name</h2>
-    
-}
+<div class="row">
+    @foreach (var cartDetail in Model.CartItems)
+    {
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <button type="button" class="close" aria-label="Close" onclick="location.href='@Url.Action("RemoveItem", "Cart", new { VariantID = cartDetail.Variant.ID })'">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <h2>@cartDetail.Qty</h2>
+                    <h2>@cartDetail.Variant.Discount</h2>
+                    <img src="@cartDetail.Variant.Product.ImageURL" height="150" width="150" />
+                    <h2>@cartDetail.Variant.Product.Name</h2>
+                </div>
+            </div>
+        </div>
+    }
+</div>
 <h2>Subtotal:@Model.SubTotal</h2>

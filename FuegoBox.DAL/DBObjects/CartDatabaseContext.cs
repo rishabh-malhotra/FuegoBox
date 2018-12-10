@@ -84,5 +84,12 @@ namespace FuegoBox.DAL.DBObjects
             return cdto;
 
         }
+
+        public void RemoveItem(Guid UserID, Guid VariantID)
+        {
+            dbContext.Cart.RemoveRange(dbContext.Cart.Where(c => c.UserID == UserID && c.VariantID == VariantID));
+            dbContext.SaveChanges();
+            return;
+        }
     }
 }

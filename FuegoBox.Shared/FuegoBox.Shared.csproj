@@ -51,6 +51,7 @@
     <Compile Include="DTO\Category\CategoryDTO.cs" />
     <Compile Include="DTO\Order\AddressDTO.cs" />
     <Compile Include="DTO\Product\CartDTO.cs" />
+    <Compile Include="DTO\Product\CartsDTO.cs" />
     <Compile Include="DTO\Shared\CartVariantDTO.cs" />
     <Compile Include="DTO\Product\ImageDTO.cs" />
     <Compile Include="DTO\Product\ProductDetailDTO.cs" />

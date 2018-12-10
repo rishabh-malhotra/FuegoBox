@@ -1,7 +1,15 @@
-﻿@model FuegoBox.Presentation.Models.ProductDetail
+﻿@model FuegoBox.Presentation.Models.CartsModel
 
 @{
-    ViewBag.Title = "CardDetail";
+    ViewBag.Title = "CartDetail";
 }
 <h1>details of cart</h1>
-<h2>@Model.Name</h2>
+@foreach (var cartDetail in Model.CartItems)
+{
+    <h2>@cartDetail.Qty</h2>
+    <h2>@cartDetail.Variant.Discount</h2>
+    <img src="@cartDetail.Variant.Product.ImageURL" height="150" width="150" />
+    <h2>@cartDetail.Variant.Product.Name</h2>
+    
+}
+<h2>Subtotal:@Model.SubTotal</h2>

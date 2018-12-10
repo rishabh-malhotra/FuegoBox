@@ -2,7 +2,6 @@
 using FuegoBox.DAL.Exceptions;
 using FuegoBox.Shared.DTO.Product;
 using FuegoBox.Shared.DTO.Category;
-
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -16,7 +15,6 @@ namespace FuegoBox.DAL.DBObjects
     {
         FuegoEntities dbContext;
         IMapper ProductSearchMapper;
-
         IMapper P_DTOmapper, v_DTOmapper, cart_mapper;
         IMapper SearchMapper;
         public ProductDetailDB()
@@ -39,15 +37,14 @@ namespace FuegoBox.DAL.DBObjects
 
             });
 
-
             v_DTOmapper = new Mapper(conf);
             P_DTOmapper = new Mapper(config);
             cart_mapper = new Mapper(configuration);
             SearchMapper = new Mapper(productsSearchDTOConfig);
         }
+
         public ProductDetailDTO GetDetail(ProductDetailDTO productDetailDTO)
         {
-            
             Product product = dbContext.Product.Where(a => a.Name == productDetailDTO.Name).FirstOrDefault();
             IEnumerable<Variant> variant = dbContext.Variant.Where(s => s.ProductID == product.ID);
             
@@ -100,14 +97,6 @@ namespace FuegoBox.DAL.DBObjects
                                                    }).ToList();
             return newProductsSearchResultDTO;
         }
-
-        //public List<Cart> GetCardItems()
-        //{
-
-        //  return dbContext.Cart.ToList();
-
-
-        //}
 
         public ProductDetailDTO AddProduct(ProductDetailDTO pdto)
         {

@@ -19,6 +19,7 @@ namespace FuegoBox.Presentation.Controllers
         CartBusinessContext cartBusinessContext;
         IMapper productmapper;
         IMapper CartMapper;
+        IMapper CartsMapper;
 
         ProductDetailContext productDetailContext;
 
@@ -41,25 +42,44 @@ namespace FuegoBox.Presentation.Controllers
                   cfg.CreateMap<CartModel,CartDTO>();
               });
 
-            productmapper = new Mapper(config);
+            var config3 = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<ProductDetailDTO, ProductModel>();
+                cfg.CreateMap<VariantDTO, VariantModel>();
+                cfg.CreateMap<CartVariantDTO, CartVariantModel>();
+            });
 
+
+            productmapper = new Mapper(config);
             CartMapper = new Mapper(config2);
+            CartsMapper = new Mapper(config3);
 
         }
+        //[UserAuthenticationFilter]
+        //public ActionResult CartDetail([Bind(Include = "Name")]ProductDetail productDetail)
+
+        //{
+        //    ProductDetailDTO productDetailDTO = productmapper.Map<ProductDetail, ProductDetailDTO>(productDetail);
+        //    ProductDetailDTO prodDetailDTO = productDetailContext.productAddToCart(productDetailDTO);
+        //    ProductDetail p = productmapper.Map<ProductDetailDTO, ProductDetail>(prodDetailDTO);
+        //    return View(p);
+
+
+        //}
         [UserAuthenticationFilter]
-        public ActionResult CartDetail([Bind(Include = "Name")]ProductDetail productDetail)
-
+        public ActionResult CartDetail()
         {
-            ProductDetailDTO productDetailDTO = productmapper.Map<ProductDetail, ProductDetailDTO>(productDetail);
-            ProductDetailDTO prodDetailDTO = productDetailContext.productAddToCart(productDetailDTO);
-            ProductDetail p = productmapper.Map<ProductDetailDTO, ProductDetail>(prodDetailDTO);
-            return View(p);
-
-
+            CartsDTO newCartsDTO = cartBusinessContext.GetCart(new Guid(Session["UserID"].ToString()));
+            CartsModel cartsModel = new CartsModel();
+            cartsModel.CartItems = CartsMapper.Map<IEnumerable<CartVariantDTO>, IEnumerable<CartVariantModel>>(newCartsDTO.CartItems);
+            cartsModel.CartItems = cartsModel.CartItems.ToList();
+            cartsModel.SubTotal = newCartsDTO.SubTotal;
+            cartsModel.IsLoggedIn = true;
+            return View(cartsModel);
         }
 
         [HttpPost]
-        public ActionResult AddToCart([Bind (Include="VariantID, ProductID,Qty,OrderLimit,Inventory")] CartModel cartmodel)
+        public ActionResult AddToCart([Bind (Include="ProductID")] CartModel cartmodel)
         {
             CartMessageModel cartMessageModel = new CartMessageModel();
 

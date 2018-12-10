@@ -16,5 +16,6 @@ namespace FuegoBox.Presentation.Models
         public string image { get; set; }
         public int QuantitySold { get; set; }
         public int Inventory { get; set; }
+        public Guid ID { get; set; }
     }
 }

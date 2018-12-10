@@ -12,6 +12,6 @@ namespace FuegoBox.Shared.DTO.Shared
         public string Name;
         public VariantDTO Variant;
         public Guid ID;
-        public int OrderQuantity;
+        public int Qty;
     }
 }

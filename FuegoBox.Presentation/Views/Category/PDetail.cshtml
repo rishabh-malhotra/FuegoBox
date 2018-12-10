@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row p-detail">
             <div class="col-md-4">
-                <img class="img-fluid" src="@Model.ImageURL" width="250" height="250" />
+                <img class="img-fluid" id="imageToSwap" src="@Model.ImageURL" width="250" height="250" />
             </div>
             <div class="col-md-6">
                 <h2 class="title"><b>Name:</b> @Model.Name</h2>
@@ -18,12 +18,12 @@
                 {
 
                     <!--<img src="Variant.image" height="100" width="100" />-->
-                <select name="VariantID">
+                <select onchange="$('#imageToSwap').attr('src', this.options[this.selectedIndex].value);">
                     @foreach (var Variant in Model.Variants)
                     {
 
-                        <option value=@Variant.ID>@Variant.Variant_Property: @Variant.Variant_Value1</option>
-                        <!--<option value=@Variant.ID>@Variant.Variant_Property: @Variant.Variant_Value2</option>-->
+                        <option value=@Variant.image>@Variant.Variant_Property: @Variant.Variant_Value1</option>
+                        <!--<option value=Variant.ID>Variant.Variant_Property: Variant.Variant_Value2</option>-->
                     }
                 </select>
 

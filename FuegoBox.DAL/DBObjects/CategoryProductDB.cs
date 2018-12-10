@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FuegoBox.DAL.Exceptions;
 using FuegoBox.Shared.DTO.Category;
 using FuegoBox.Shared.DTO.Product;
 using System;
@@ -49,9 +50,13 @@ namespace FuegoBox.DAL.DBObjects
         }
         public CategoryDTO GetCategoryonHomePage()
         {
+
+
             CategoryDTO cd = new CategoryDTO();
+            //IEnumerable<Product> pr = new List<Product>();
+            List<List<ProductDetailDTO>> abcd = new List<List<ProductDetailDTO>>();
             var categories = dbContext.Category.Include(abc => abc.Product).OrderByDescending(cdd => cdd.ProductsSold).ToList().Take(3);
-            foreach (var cato in categories)
+            foreach (Category cato in categories)
             {
                 cd.Products = (from pi in dbContext.Product
                                where pi.CategoryID == cato.ID
@@ -59,18 +64,36 @@ namespace FuegoBox.DAL.DBObjects
                                orderby v.QuantitySold descending
                                select new ProductDetailDTO()
                                {
-                                   CatName = cato.Name,
                                    Name = pi.Name,
-                                   Description = pi.Description,
-                                   OrderLimit = 0,
+                                   CatName = cato.Name,
                                    ListingPrice = v.ListingPrice,
                                    Discount = v.Discount,
-                                   ImageURL = "abc"
 
                                }).ToList().Take(3);
-            }
-                return cd;
 
+
+                abcd.Add(cd.Products.ToList());
+
+            }
+            List<ProductDetailDTO> prs = new List<ProductDetailDTO>();
+            foreach (var asd in abcd)
+            {
+                foreach (var ass in asd)
+                {
+                    prs.Add(ass);
+                }
+            }
+            cd.Products = prs;
+            return cd;
+        }
+        public bool CategoryExists(string CategoryName)
+        {
+            Category category = dbContext.Category.Where(c => c.Name == CategoryName).FirstOrDefault();
+            if (category == null)
+            {
+                throw new NotFoundException();
+            }
+            return true;
         }
     }
 }

@@ -1,13 +1,13 @@
-﻿using System;
+﻿using AutoMapper;
+using FuegoBox.Business.BusinessObjects;
+using FuegoBox.Presentation.Models;
+using FuegoBox.Shared.DTO.Category;
+using FuegoBox.Shared.DTO.Product;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using AutoMapper;
-using FuegoBox.Business.BusinessObjects;
-using FuegoBox.Presentation.Models;
-using FuegoBox.Shared.DTO.Category;
-
 
 namespace FuegoBox.Presentation.Controllers
 {
@@ -27,14 +27,22 @@ namespace FuegoBox.Presentation.Controllers
         public ActionResult Index()
         {
             CategoryModel categorymodel = new CategoryModel();
-
             CategoryDTO cdto = new CategoryDTO();
+
+
+            // cdto = productlist;
             cdto = catMapper.Map<CategoryModel, CategoryDTO>(categorymodel);
-            cdto = cdc.GetCategoryOnHomePage();
-            categorymodel = catMapper.Map<CategoryDTO, CategoryModel>(cdto);
-            return View(categorymodel);
-            
+            try
+            {
+                cdto = cdc.GetCategoryOnHomePage();
+
+                categorymodel = catMapper.Map<CategoryDTO, CategoryModel>(cdto);
+                return View(cdto);
+            }
+            catch (Exception)
+            {
+                return View("Internal Error");
+            }
         }
-        
     }
 }

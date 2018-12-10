@@ -22,6 +22,18 @@ namespace FuegoBox.Business.BusinessObjects
         }
         public ProductDetailDTO GetProductDetail(ProductDetailDTO productDetailDTO)
         {
+            try
+            {
+                bool exists = ProductDBObject.ProductExists(productDetailDTO.Name);
+            }
+            catch (NotFoundException ex)
+            {
+                throw new ProductDoesNotExistsException();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Unknown Error");
+            }
             ProductDetailDTO produDetailDTO = ProductDBObject.GetDetail(productDetailDTO);
             return produDetailDTO;
         }
@@ -33,8 +45,16 @@ namespace FuegoBox.Business.BusinessObjects
         }
         public ProductSearchResultDTO GetProductwithString(string searchString)
         {
-            ProductSearchResultDTO produDetailDTO = ProductDBObject.GetProductSearch(searchString);
-            return produDetailDTO;
+            try
+            {
+                ProductSearchResultDTO produDetailDTO = ProductDBObject.GetProductSearch(searchString);
+                return produDetailDTO;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Unknown Error");
+            }
+           
         }
 
     }

@@ -7,6 +7,7 @@ namespace FuegoBox.Presentation.Models
 {
     public class ProductsSearchModel
     {
+        public string Name { get; set; }
         public IEnumerable<ProductDetail> Products;
     }
 }

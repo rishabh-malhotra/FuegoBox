@@ -83,7 +83,7 @@ namespace FuegoBox.DAL.DBObjects
             IEnumerable<Product> searchResults = dbContext.Product.Where(p => p.Name.Contains(searchString));
             ProductSearchResultDTO newProductsSearchResultDTO = new ProductSearchResultDTO();
             // newProductsSearchResultDTO.Products = ProductSearchMapper.Map<IEnumerable<Product>, IEnumerable<ProductDetailDTO>>(searchResults);
-            newProductsSearchResultDTO.Products = (from pi in dbContext.Product.Where(p => p.Name.Contains(searchString))
+            newProductsSearchResultDTO.Products = (from pi in dbContext.Product.Where(p => p.Name.Contains(searchString) || p.Description.Contains(searchString))
                                                    join v in dbContext.Variant on pi.ID equals v.ProductID
                                                    join img in dbContext.VariantImage on v.ID equals img.VariantID
                                                    select new ProductDetailDTO()
@@ -113,5 +113,14 @@ namespace FuegoBox.DAL.DBObjects
             dbContext.SaveChanges();
             return cartdto;
         }
+        public bool ProductExists(string Name)
+        {
+            Product product = dbContext.Product.Where(asd => asd.Name == Name).FirstOrDefault();
+            if (product == null)
+            {
+                throw new ProductNotFoundException();
+            }
+            return true;
         }
+    }
 }

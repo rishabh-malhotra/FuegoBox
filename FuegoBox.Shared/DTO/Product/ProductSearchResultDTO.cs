@@ -8,6 +8,7 @@ namespace FuegoBox.Shared.DTO.Product
 {
     public class ProductSearchResultDTO
     {
+        public string Name { get; set; }
         public IEnumerable<ProductDetailDTO> Products { get; set; }
     }
 }

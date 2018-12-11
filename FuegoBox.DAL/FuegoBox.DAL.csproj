@@ -83,6 +83,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="DBObjects\CartDatabaseContext.cs" />
     <Compile Include="DBObjects\CategoryProductDB.cs" />
+    <Compile Include="DBObjects\OrderDBObject.cs" />
     <Compile Include="DBObjects\ProductDetailDB.cs" />
     <Compile Include="DBObjects\UserDetail.cs" />
     <Compile Include="Exceptions\AlreadyPresentException.cs" />

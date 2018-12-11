@@ -37,6 +37,7 @@ namespace FuegoBox.DAL.DBObjects
 
         }
 
+        //check whether the user exists or not
         public bool UserExists(UserLoginDTO userLoginDTO)
         {
             User user = dbContext.User.Where(a => a.Email == userLoginDTO.Email).FirstOrDefault();
@@ -51,6 +52,7 @@ namespace FuegoBox.DAL.DBObjects
            
         }
 
+        //check whether the user email exists or not while registration
         public bool UserEmailExists(string Email)
         {
             User user = dbContext.User.Where(a => a.Email == Email).FirstOrDefault();
@@ -64,6 +66,7 @@ namespace FuegoBox.DAL.DBObjects
             }
         }
 
+        //getting the details of the user
         public UserBasicDTO GetUser(UserLoginDTO userLoginDTO)
         {
             User user= dbContext.User.Where(a => a.Email == userLoginDTO.Email).FirstOrDefault();
@@ -79,6 +82,7 @@ namespace FuegoBox.DAL.DBObjects
         }
 
 
+        //registering the user
         public UserBasicDTO AddUser(UserRegisterDTO userRegisterDTO)
         {
             User user = UserRegisterDTOusermapper.Map<UserRegisterDTO, User>(userRegisterDTO);
@@ -91,6 +95,7 @@ namespace FuegoBox.DAL.DBObjects
             return userBasicDTO;
         }
 
+        //check whether the logged in user is admin or not
         public bool CheckAdmin(Guid UserID)
         {
             User user = dbContext.User.Where(u => u.ID == UserID).First();

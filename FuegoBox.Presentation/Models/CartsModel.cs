@@ -8,6 +8,7 @@ namespace FuegoBox.Presentation.Models
     public class CartsModel
     {
         public double SubTotal { get; set; }
+        public string Image { get; set; }
         public bool IsLoggedIn { get; set; }
         public IEnumerable<CartVariantModel> CartItems;
     }

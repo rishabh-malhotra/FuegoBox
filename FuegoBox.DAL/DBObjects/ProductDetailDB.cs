@@ -14,43 +14,21 @@ namespace FuegoBox.DAL.DBObjects
     public class ProductDetailDB
     {
         FuegoEntities dbContext;
-        IMapper ProductSearchMapper;
-        IMapper P_DTOmapper, v_DTOmapper, cart_mapper;
-        IMapper SearchMapper;
+       
+        IMapper P_DTOmapper;
         public ProductDetailDB()
         {
             dbContext = new FuegoEntities();
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<Product, ProductDetailDTO>();
-            });
-            var conf = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<Variant, VariantDTO>();
-            });
-            var configuration = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<CartDTO, Cart>();
-            });
-            var productsSearchDTOConfig = new MapperConfiguration(cfg => {
-                cfg.CreateMap<Product, ProductDetailDTO>();
 
-            });
-
-            v_DTOmapper = new Mapper(conf);
-            P_DTOmapper = new Mapper(config);
-            cart_mapper = new Mapper(configuration);
-            SearchMapper = new Mapper(productsSearchDTOConfig);
         }
 
         public ProductDetailDTO GetDetail(ProductDetailDTO productDetailDTO)
         {
             Product product = dbContext.Product.Where(a => a.Name == productDetailDTO.Name).FirstOrDefault();
-            IEnumerable<Variant> variant = dbContext.Variant.Where(s => s.ProductID == product.ID);
             
             if (product != null)
             {
-                ProductDetailDTO newBasicDTO = P_DTOmapper.Map<Product, ProductDetailDTO>(product);
+                ProductDetailDTO newBasicDTO = new ProductDetailDTO();
                 newBasicDTO.Name = product.Name;
      
                 newBasicDTO.Variants = (from v in dbContext.Variant.Where(cdf => cdf.ProductID == product.ID)
@@ -77,7 +55,8 @@ namespace FuegoBox.DAL.DBObjects
             }
             return null;
         }
-       
+
+        //search the product using the name or description of the product
         public ProductSearchResultDTO GetProductSearch(string searchString)
         {
             IEnumerable<Product> searchResults = dbContext.Product.Where(p => p.Name.Contains(searchString));
@@ -98,6 +77,7 @@ namespace FuegoBox.DAL.DBObjects
             return newProductsSearchResultDTO;
         }
 
+        //adding product to the cart using the loggedin user's userID
         public ProductDetailDTO AddProduct(ProductDetailDTO pdto)
         {
             Product product = dbContext.Product.Where(a => a.Name == pdto.Name).FirstOrDefault();
@@ -113,6 +93,8 @@ namespace FuegoBox.DAL.DBObjects
             dbContext.SaveChanges();
             return cartdto;
         }
+
+        //to check whether the product exists or not.
         public bool ProductExists(string Name)
         {
             Product product = dbContext.Product.Where(asd => asd.Name == Name).FirstOrDefault();

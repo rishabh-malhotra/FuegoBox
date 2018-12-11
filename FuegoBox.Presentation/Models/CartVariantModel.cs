@@ -11,5 +11,6 @@ namespace FuegoBox.Presentation.Models
         public VariantModel Variant;
         public Guid ID;
         public int Qty;
+       
     }
 }

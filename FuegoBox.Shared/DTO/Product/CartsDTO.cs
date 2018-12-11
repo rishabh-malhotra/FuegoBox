@@ -10,6 +10,7 @@ namespace FuegoBox.Shared.DTO.Product
     public class CartsDTO
     {
         public double SubTotal { get; set; }
+        public string Image { get; set; }
         public IEnumerable<CartVariantDTO> CartItems { get; set; }
         //public IEnumerable<ProductDetailDTO> Products { get; set; }
     }

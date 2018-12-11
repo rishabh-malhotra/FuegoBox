@@ -18,6 +18,7 @@ namespace FuegoBox.Business.BusinessObjects
         {
             UserDBObject = new UserDetail();
         }
+        //adding new register to the database..
         public UserBasicDTO RegisterUser(UserRegisterDTO userRegisterDTO)
         {
             try
@@ -46,6 +47,7 @@ namespace FuegoBox.Business.BusinessObjects
             return null;
         }
 
+        //log in the user...
         public UserBasicDTO LoginUser(UserLoginDTO userLoginDTO)
         {
             try
@@ -66,6 +68,8 @@ namespace FuegoBox.Business.BusinessObjects
             }
             
         }
+
+        //passing user's id to dal layer to check whether he is admin or not.
         public bool CheckAdmin(Guid UserID)
         {
             return UserDBObject.CheckAdmin(UserID);

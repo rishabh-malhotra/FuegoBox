@@ -20,6 +20,8 @@ namespace FuegoBox.Business.BusinessObjects
         {
             ProductDBObject = new ProductDetailDB();
         }
+
+        //display detail of the product..
         public ProductDetailDTO GetProductDetail(ProductDetailDTO productDetailDTO)
         {
             try
@@ -37,12 +39,14 @@ namespace FuegoBox.Business.BusinessObjects
             ProductDetailDTO produDetailDTO = ProductDBObject.GetDetail(productDetailDTO);
             return produDetailDTO;
         }
-
+        //add product to the cart
         public ProductDetailDTO productAddToCart(ProductDetailDTO productDetailDTO)
         {
             ProductDetailDTO cDTO = ProductDBObject.AddProduct(productDetailDTO);
             return cDTO;
         }
+
+        //search product with the name or description
         public ProductSearchResultDTO GetProductwithString(string searchString)
         {
             try

@@ -13,6 +13,8 @@ namespace FuegoBox.Business.BusinessObjects
     public class CartBusinessContext
     {
         CartDatabaseContext cartDatabaseContext=new CartDatabaseContext();
+
+        //function to add items to the cart 
         public void AddToCart(CartDTO cartDTO)
         {
             try
@@ -28,6 +30,8 @@ namespace FuegoBox.Business.BusinessObjects
 
             cartDatabaseContext.AddToCart(cartDTO);
         }
+
+        //function to view the cart according to the user...
         public CartsDTO GetCart(Guid UserID)
         {
             CartsDTO newCartsDTO = cartDatabaseContext.GetCart(UserID);
@@ -41,6 +45,8 @@ namespace FuegoBox.Business.BusinessObjects
             newCartsDTO.SubTotal = subtotal;
             return newCartsDTO;
         }
+
+        //function to remove the item from the cart....
         public void RemoveItem(Guid UserID, Guid VariantID)
         {
             cartDatabaseContext.RemoveItem(UserID, VariantID);

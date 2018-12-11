@@ -15,10 +15,9 @@ namespace FuegoBox.Presentation.Models
         [Required]
         [Display(Name = "AddressLine 2")]
         public string AddressLine2 { get; set; }
-
+        
         [Required]
-        [StringLength(6, MinimumLength = 5)]
-        public string PIN { get; set; }
+        public int PIN { get; set; }
 
     }
 }

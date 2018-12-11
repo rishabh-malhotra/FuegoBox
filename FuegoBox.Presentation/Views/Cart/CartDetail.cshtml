@@ -4,24 +4,33 @@
     ViewBag.Title = "CartDetail";
 }
 <h1>details of cart</h1>
-<div class="row">
+
     @foreach (var cartDetail in Model.CartItems)
-    {
-        <div class="col-md-3">
-            <div class="card">
-                <div class="card-header">
-                    <button type="button" class="close" aria-label="Close" onclick="location.href='@Url.Action("RemoveItem", "Cart", new { VariantID = cartDetail.Variant.ID })'">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="card-body">
-                    <h2>Order Quantity:@cartDetail.Qty</h2>
-                    <h2>Selling Price:@cartDetail.Variant.Discount</h2>
-                    <img src="@cartDetail.Variant.Product.ImageURL" height="150" width="150" />
-                    <h2>Name:@cartDetail.Variant.Product.Name</h2>
+    {<div class="row">
+    <div class="col-md-12">
+        <div class="card card-style" style="margin-bottom:10px">
+            <div class="card-header">
+                <button type="button" class="close" aria-label="Close" onclick="location.href='@Url.Action("RemoveItem", "Cart", new { VariantID = cartDetail.Variant.ID })'">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="@cartDetail.Variant.image" height="150" width="150" />
+                    </div>
+                    <div class="col-md-4 offset-1">
+                        <h2>Order Quantity:@cartDetail.Qty</h2>
+                        <h2>Selling Price:@cartDetail.Variant.Discount</h2>
+                        <h2>Name:@cartDetail.Variant.Product.Name</h2>
+                    </div>
                 </div>
             </div>
         </div>
-    }
+    </div>
 </div>
+    }
+
 <h2>Subtotal:@Model.SubTotal</h2>
+
+<button class="btn btn-primary" href="location.href='@Url.Action("Checkout","Order")'">Checkout</button>

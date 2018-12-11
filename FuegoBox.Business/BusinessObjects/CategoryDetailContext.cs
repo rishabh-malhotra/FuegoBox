@@ -18,6 +18,8 @@ namespace FuegoBox.Business.BusinessObjects
         {
             catDBObject = new CategoryProductDB();
         }
+
+        //display all the product from the particular category...
         public CategoryDTO GetCategoryProduct(string catName)
         {
             try
@@ -31,6 +33,8 @@ namespace FuegoBox.Business.BusinessObjects
             CategoryDTO catproductDTO = catDBObject.Getproduct(catName);
             return catproductDTO;
         }
+
+        //display product to the home page....
         public CategoryDTO GetCategoryOnHomePage()
         {
             CategoryDTO cdto = catDBObject.GetCategoryonHomePage();

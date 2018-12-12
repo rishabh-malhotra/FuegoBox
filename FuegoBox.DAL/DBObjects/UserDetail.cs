@@ -55,6 +55,7 @@ namespace FuegoBox.DAL.DBObjects
         //check whether the user email exists or not while registration
         public bool UserEmailExists(string Email)
         {
+            dbContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
             User user = dbContext.User.Where(a => a.Email == Email).FirstOrDefault();
             if (user != null)
             {
@@ -69,6 +70,7 @@ namespace FuegoBox.DAL.DBObjects
         //getting the details of the user
         public UserBasicDTO GetUser(UserLoginDTO userLoginDTO)
         {
+            dbContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
             User user= dbContext.User.Where(a => a.Email == userLoginDTO.Email).FirstOrDefault();
             if (user != null)
             {
@@ -87,6 +89,7 @@ namespace FuegoBox.DAL.DBObjects
         {
             User user = UserRegisterDTOusermapper.Map<UserRegisterDTO, User>(userRegisterDTO);
             user.ID = Guid.NewGuid();
+            dbContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
             user.RoleID= dbContext.Role.Where(r => r.Name == "user").First().ID;
             //user.Role.Add(dbContext.Role.Where(r => r.Name == "user").First());
             dbContext.User.Add(user);
@@ -98,6 +101,7 @@ namespace FuegoBox.DAL.DBObjects
         //check whether the logged in user is admin or not
         public bool CheckAdmin(Guid UserID)
         {
+            dbContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
             User user = dbContext.User.Where(u => u.ID == UserID).First();
             Role role = dbContext.Role.Where(r=>r.Name == "admin").FirstOrDefault();
            

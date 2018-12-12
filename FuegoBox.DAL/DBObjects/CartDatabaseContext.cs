@@ -48,6 +48,7 @@ namespace FuegoBox.DAL.DBObjects
         {
             Cart cart = new Cart();
             //   Cart cart = new Cart { UserID = cartDTO.UserID, VariantID = cartDTO.VariantID, Qty = cartDTO.Qty };
+            dbContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
             Variant vara = dbContext.Variant.Where(va => va.ProductID == cartDTO.ProductID).FirstOrDefault();
             cart.UserID = cartDTO.UserID;
             cart.ID = Guid.NewGuid();
@@ -79,9 +80,17 @@ namespace FuegoBox.DAL.DBObjects
         //function to remove the item from the cart according to the logged in user and variant id...
         public void RemoveItem(Guid UserID, Guid VariantID)
         {
+            dbContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
             dbContext.Cart.RemoveRange(dbContext.Cart.Where(c => c.UserID == UserID && c.VariantID == VariantID));
             dbContext.SaveChanges();
             return;
+        }
+
+        public void EmptyCart(Guid UserID)
+        {
+            dbContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+            dbContext.Cart.RemoveRange(dbContext.Cart.Where(cart => cart.UserID == UserID));
+            dbContext.SaveChanges();
         }
     }
 }

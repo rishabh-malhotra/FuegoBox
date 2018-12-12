@@ -13,11 +13,12 @@ namespace FuegoBox.Business.BusinessObjects
     {
         OrderDBObject orderDBObject;
         CartDatabaseContext cdo;
-
+        CartBusinessContext cartBusinessContext;
         public OrderBusinessContext()
         {
             orderDBObject = new OrderDBObject();
             cdo = new CartDatabaseContext();
+            cartBusinessContext = new CartBusinessContext();
         }
 
         public bool PlaceOrder(AddressDTO od, Guid userid)
@@ -31,6 +32,7 @@ namespace FuegoBox.Business.BusinessObjects
             }
             cartsDTO.SubTotal = subtotal;
             orderDBObject.PlaceOrder(userid, cartsDTO, addressid);
+            cartBusinessContext.EmptyCart(userid);
             return true;
         }
 

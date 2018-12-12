@@ -24,6 +24,7 @@ namespace FuegoBox.DAL.DBObjects
         public CategoryDTO Getproduct(string categoryName)
         {
             System.Guid idvalue;
+            dbContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
             Category category = dbContext.Category.Where(c => c.Name == categoryName).FirstOrDefault();
             idvalue = category.ID;
             CategoryDTO categoryDTO = new CategoryDTO();
@@ -52,6 +53,8 @@ namespace FuegoBox.DAL.DBObjects
 
             CategoryDTO cd = new CategoryDTO();
             List<List<ProductDetailDTO>> productlist1 = new List<List<ProductDetailDTO>>();
+
+            dbContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
             var categories = dbContext.Category.Include(abc => abc.Product).OrderByDescending(cdd => cdd.ProductsSold).ToList();
             foreach (Category cato in categories)
             {
@@ -108,6 +111,7 @@ namespace FuegoBox.DAL.DBObjects
         //to check whether the category exists or not..
         public bool CategoryExists(string CategoryName)
         {
+            dbContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
             Category category = dbContext.Category.Where(c => c.Name == CategoryName).FirstOrDefault();
             if (category == null)
             {

@@ -26,6 +26,7 @@ namespace FuegoBox.DAL.DBObjects
 
         public Guid AddAddress(AddressDTO addDTO, Guid userid)
         {
+            dbContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
             Address address = AddressMapper.Map<AddressDTO, Address>(addDTO);
             address.UserID = userid;
             address.ID = Guid.NewGuid();

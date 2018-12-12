@@ -51,6 +51,11 @@ namespace FuegoBox.Business.BusinessObjects
         {
             cartDatabaseContext.RemoveItem(UserID, VariantID);
         }
+        public bool EmptyCart(Guid UserID)
+        {
+            cartDatabaseContext.EmptyCart(UserID);
+            return true;
+        }
 
     }
 }

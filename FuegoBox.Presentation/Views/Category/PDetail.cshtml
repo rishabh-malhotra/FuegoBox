@@ -8,11 +8,12 @@
                 <img class="img-fluid" id="imageToSwap" src="@Model.ImageURL" width="250" height="250" />
             </div>
             <div class="col-md-6">
+                <h2>@Model.ID</h2>
                 <h2 class="title"><b>Name:</b> @Model.Name</h2>
                 <p><b>Description:</b> @Model.Description</p>
                 <h5><b>Category:</b> @Model.CatName</h5>
-                <h6><b>Price: &#8377;</b> @Model.ListingPrice</h6>
-                <h6><b>Discount Price: &#8377;</b> @Model.Discount</h6>
+                @*<h6><b>Price: &#8377;</b> @Model.ListingPrice</h6>
+                <h6><b>Discount Price: &#8377;</b> @Model.Discount</h6>*@
                 <h6><b>@(Model.Inventory - Model.QuantitySold)</b> left in stock.</h6>
                 @using (Html.BeginForm("AddToCart", "Cart", new { ProductID = Model.ID}, FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {

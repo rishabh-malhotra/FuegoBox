@@ -18,7 +18,7 @@ namespace FuegoBox.Presentation.Controllers
     {
         OrderBusinessContext orderBusinessContext;
 
-        IMapper AddressMapper, omapper, OrderMapper;
+        IMapper AddressMapper, omapper;
         public OrderController()
         {
             orderBusinessContext = new OrderBusinessContext();
@@ -30,7 +30,7 @@ namespace FuegoBox.Presentation.Controllers
             {
                 cfg.CreateMap<ViewOrderDTO, ViewOrderModel>();
             });
-            OrderMapper = new Mapper(config);
+            AddressMapper = new Mapper(config);
             omapper = new Mapper(conf);
         }
         public ActionResult Checkout()

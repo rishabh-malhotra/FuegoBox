@@ -25,12 +25,15 @@ namespace FuegoBox.DAL.DBObjects
         public ProductDetailDTO GetDetail(ProductDetailDTO productDetailDTO)
         {
             Product product = dbContext.Product.Where(a => a.Name == productDetailDTO.Name).FirstOrDefault();
-            
+            Category category = dbContext.Category.Where(ab => ab.ID == product.CategoryID).FirstOrDefault();
             if (product != null)
             {
+                
                 ProductDetailDTO newBasicDTO = new ProductDetailDTO();
+                newBasicDTO.ID = product.ID;
                 newBasicDTO.Name = product.Name;
-     
+                newBasicDTO.Description = product.Description;
+                newBasicDTO.CatName = category.Name;
                 newBasicDTO.Variants = (from v in dbContext.Variant.Where(cdf => cdf.ProductID == product.ID)
                                         join vp in dbContext.VariantProperty on v.ID equals vp.VariantID
                                         join img in dbContext.VariantImage on v.ID equals img.VariantID
@@ -49,7 +52,7 @@ namespace FuegoBox.DAL.DBObjects
                                             
                                         });
                 Variant var = dbContext.Variant.Where(cdf => cdf.ProductID == product.ID).FirstOrDefault();
-                VariantImage ima = dbContext.VariantImage.Where(cd => cd.VariantID == var.ID).FirstOrDefault();
+                VariantImage ima = dbContext.VariantImage.Where(cd => cd.VariantID == var.ID).First();
                 newBasicDTO.ImageURL = ima.ImageURL;
                 return newBasicDTO;
             }
@@ -97,6 +100,7 @@ namespace FuegoBox.DAL.DBObjects
         //to check whether the product exists or not.
         public bool ProductExists(string Name)
         {
+            dbContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
             Product product = dbContext.Product.Where(asd => asd.Name == Name).FirstOrDefault();
             if (product == null)
             {

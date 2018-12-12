@@ -13,6 +13,7 @@ namespace FuegoBox.DAL.DBObjects
     {
         FuegoEntities dbContext;
         IMapper AddressMapper;
+        //CategoryProductDB categorydb = new CategoryProductDB();
         public OrderDBObject()
         {
             dbContext = new FuegoEntities();
@@ -49,6 +50,7 @@ namespace FuegoBox.DAL.DBObjects
             order.TotalAmount = cdto.SubTotal;
             dbContext.Order.Add(order);
             dbContext.SaveChanges();
+            cdb.addOrderProduct(order, cdto);
         }
 
         public ViewOrderDTO ViewOrder(Guid userid)
@@ -56,20 +58,18 @@ namespace FuegoBox.DAL.DBObjects
             ViewOrderDTO viewcdto = new ViewOrderDTO();
             dbContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
             viewcdto.OrderItems = (from or in dbContext.Order.Where(cdd => cdd.UserID == userid)
-                                   join cart in dbContext.Cart on or.UserID equals cart.UserID
-                                   join vari in dbContext.Variant on cart.VariantID equals vari.ID
-                                   join img in dbContext.VariantImage on vari.ID equals img.VariantID
+                                   join op in dbContext.OrderProduct on or.ID equals op.OrderID
+                                   join vari in dbContext.Variant on op.VariantID equals vari.ID
                                    join p in dbContext.Product on vari.ProductID equals p.ID
-
+                                   join img in dbContext.VariantImage on vari.ID equals img.VariantID
                                    select new OrderItemsDTO()
                                    {
-                                       OrderDate = or.OrderDate,
-                                       Name = p.Name,
                                        Price = vari.Discount,
-                                       Url = img.ImageURL
+                                       Url = img.ImageURL,
+                                       OrderDate = or.OrderDate,
+                                       Name = p.Name
+                                   }).ToList();
 
-
-                                   });
             return viewcdto;
         }
 

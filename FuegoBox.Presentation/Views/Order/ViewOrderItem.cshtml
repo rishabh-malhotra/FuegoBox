@@ -2,8 +2,10 @@
     ViewBag.Title = "ViewOrderItem";
 }
 @foreach (var product in Model.OrderItems)
-{<h2>Order Date: @product.OrderDate</h2>
-<h3>Name: @product.Name</h3>
-<h3>Price: @product.Price</h3>
-<img src="@product.Url" height="100px" width="100px" />
+{
+    <h4><b>Name:</b> @product.Name</h4>
+<h4><b>Price:</b> @product.Price</h4>
+<h4><b>Order Date:</b>@product.OrderDate</h4>
+<img src="@product.Url" height="100" width="100" />
+<hr /><hr />
 }

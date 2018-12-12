@@ -137,5 +137,20 @@ namespace FuegoBox.DAL.DBObjects
                 dbContext.SaveChanges();
             }
             }
+        public void addOrderProduct(Order order, CartsDTO cdto)
+        {
+            foreach (var cartItem in cdto.CartItems)
+            {
+                OrderProduct op = new OrderProduct();
+                op.VariantID = cartItem.Variant.ID;
+                op.SellingPrice = cartItem.Variant.Discount;
+                op.OrderID = order.ID;
+                op.ID = Guid.NewGuid();
+                op.Qty = 1;
+                dbContext.OrderProduct.Add(op);
+                dbContext.SaveChanges();
+            }
         }
+
+    }
 }

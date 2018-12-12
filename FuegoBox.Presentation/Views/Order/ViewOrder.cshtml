@@ -1,0 +1,27 @@
+﻿@model FuegoBox.Presentation.Models.OrdersModel
+
+@{
+    ViewBag.Title = "Order History";
+}
+
+
+<h2 class="center-element">@ViewBag.Title</h2>
+
+<div class="container">
+
+    @foreach (var order in Model.orders)
+    {
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <a class="card h-100" href="@Url.Action("ViewOrderItem","Order",new { ID = @order.ID})">
+                <div class="card-body card-style">
+                    <h2>@order.TotalAmount</h2>
+                    <h2 >Ordered At:@order.OrderDate</h2>
+                    <h2>Status:@order.status</h2>
+                </div>
+            </a>
+        </div>
+    </div>
+     }
+        
+    </div>

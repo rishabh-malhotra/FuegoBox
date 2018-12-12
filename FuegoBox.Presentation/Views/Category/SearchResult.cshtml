@@ -16,19 +16,21 @@ else if ((Model.Products.Count() == 0))
 }
 else
 {
-<div class="row">
-    @foreach (var product in Model.Products)
-    {
-        <div class="col-md-3 anchor" style="margin-bottom:10px">
-            <a class="card  h-100" href="@Url.Action("PDetail", "Category", new { Name = product.Name })">
-                <div class="card-body">
-                    <img src="@product.ImageURL" width="200" height="200" />
-                    <h2 class="title">@product.Name</h2>
-                    <h6 class="card-text text-center" style="text-decoration:line-through">&#8377;@product.ListingPrice</h6>
-                    <h6 class="card-text text-center" style="color:rebeccapurple">&#8377;@product.Discount</h6>
-                </div>
-            </a>
-        </div>
-    }
-</div>
+    <h2 class="center-element">You Searched for: @ViewBag.searchString</h2>
+    <div class="row">
+
+        @foreach (var product in Model.Products)
+        {
+            <div class="col-md-3 anchor" style="margin-bottom:10px">
+                <a class="card  h-100" href="@Url.Action("PDetail", "Category", new { Name = product.Name })">
+                    <div class="card-body">
+                        <img src="@product.ImageURL" width="200" height="200" />
+                        <h2 class="title">@product.Name</h2>
+                        <h6 class="card-text text-center" style="text-decoration:line-through">&#8377;@product.ListingPrice</h6>
+                        <h6 class="card-text text-center" style="color:rebeccapurple">&#8377;@product.Discount</h6>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
 }

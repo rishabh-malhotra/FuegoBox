@@ -25,7 +25,7 @@
                 @if (Session["UserID"] != null)
                 {
                     <li class="nav-item spacing nav-link anchor" ><i class="fa fa-sign-out" aria-hidden="true"></i>@Html.ActionLink("Logout", "Logout", "Login")</li>
-                    <li class="nav-item spacing nav-link anchor"><i class="fa fa-file" aria-hidden="true"></i>@Html.ActionLink("My Orders", "ViewOrderItem", "Order")</li>
+                    <li class="nav-item spacing nav-link anchor"><i class="fa fa-file" aria-hidden="true"></i>@Html.ActionLink("My Orders", "ViewOrder", "Order")</li>
                     <li class="nav-item spacing nav-link anchor"><h6 style="color:black"><i class="fa fa-user" aria-hidden="true"></i>@Session["name"]</h6></li>
                 }
                 else

@@ -53,11 +53,11 @@ namespace FuegoBox.DAL.DBObjects
             cdb.addOrderProduct(order, cdto);
         }
 
-        public ViewOrderDTO ViewOrder(Guid userid)
+        public ViewOrderDTO ViewOrder(Guid orderID)
         {
             ViewOrderDTO viewcdto = new ViewOrderDTO();
             dbContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
-            viewcdto.OrderItems = (from or in dbContext.Order.Where(cdd => cdd.UserID == userid)
+            viewcdto.OrderItems = (from or in dbContext.Order.Where(cdd => cdd.ID==orderID)
                                    join op in dbContext.OrderProduct on or.ID equals op.OrderID
                                    join vari in dbContext.Variant on op.VariantID equals vari.ID
                                    join p in dbContext.Product on vari.ProductID equals p.ID
@@ -73,5 +73,37 @@ namespace FuegoBox.DAL.DBObjects
             return viewcdto;
         }
 
+        public OrdersDTO GetOrders(Guid user_Id)
+        {
+            OrdersDTO ordersDTO = new OrdersDTO();
+            ordersDTO.orders = (from oc in dbContext.Order
+                             where oc.UserID == user_Id
+                             select new OrderDTO()
+                             {
+                                TotalAmount=oc.TotalAmount,
+                                OrderDate=oc.OrderDate,
+                                DeliveryDate=oc.DeliveryDate,
+                                ID=oc.ID
+                               
+                            }).ToList();
+
+
+            foreach (var i in ordersDTO.orders)
+            {
+                if (i.DeliveryDate <= i.OrderDate) {
+                    i.status = "Delivered";
+                }
+                else
+                {
+                    i.status = "Not Delivered";
+                }
+            }
+            
+            return ordersDTO;
+ 
+        }
+
     }
 }
+
+//dbContext.Order.Where(or=>or.UserID == user_Id);

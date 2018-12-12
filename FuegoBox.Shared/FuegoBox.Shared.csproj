@@ -52,7 +52,9 @@
     <Compile Include="DTO\Cart\ViewCartDTO.cs" />
     <Compile Include="DTO\Category\CategoryDTO.cs" />
     <Compile Include="DTO\Order\AddressDTO.cs" />
+    <Compile Include="DTO\Order\OrderDTO.cs" />
     <Compile Include="DTO\Order\OrderItemsDTO.cs" />
+    <Compile Include="DTO\Order\OrdersDTO.cs" />
     <Compile Include="DTO\Order\ViewOrderDTO.cs" />
     <Compile Include="DTO\Product\CartDTO.cs" />
     <Compile Include="DTO\Product\CartsDTO.cs" />

@@ -184,6 +184,8 @@
     <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\OrderItemsModel.cs" />
+    <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\OrdersModel.cs" />
     <Compile Include="Models\ProductDetail.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\ProductSearchModel.cs" />
@@ -300,6 +302,7 @@
     <Content Include="Views\Order\PlaceOrder.cshtml" />
     <Content Include="Views\Order\ViewOrderItem.cshtml" />
     <Content Include="Views\Cart\NotAdded.cshtml" />
+    <Content Include="Views\Order\ViewOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

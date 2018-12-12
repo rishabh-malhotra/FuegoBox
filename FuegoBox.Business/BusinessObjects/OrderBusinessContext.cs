@@ -36,12 +36,17 @@ namespace FuegoBox.Business.BusinessObjects
             return true;
         }
 
-        public ViewOrderDTO viewOrder(Guid userid)
+        public ViewOrderDTO viewOrder(Guid order_id)
         {
-            ViewOrderDTO vdto = orderDBObject.ViewOrder(userid);
+            ViewOrderDTO vdto = orderDBObject.ViewOrder(order_id);
             return vdto;
         }
 
+        public OrdersDTO GetOrders(Guid userId)
+        {
+            OrdersDTO ordersDTO=orderDBObject.GetOrders(userId);
+            return ordersDTO;
+        }
 
     }
 }

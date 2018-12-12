@@ -18,7 +18,7 @@ namespace FuegoBox.Presentation.Controllers
     {
         OrderBusinessContext orderBusinessContext;
 
-        IMapper AddressMapper, omapper;
+        IMapper AddressMapper, omapper,orderMapper;
         public OrderController()
         {
             orderBusinessContext = new OrderBusinessContext();
@@ -30,8 +30,13 @@ namespace FuegoBox.Presentation.Controllers
             {
                 cfg.CreateMap<ViewOrderDTO, ViewOrderModel>();
             });
+            var config2 = new MapperConfiguration(cfg =>
+              {
+                  cfg.CreateMap<OrdersDTO, OrdersModel>();
+              });
             AddressMapper = new Mapper(config);
             omapper = new Mapper(conf);
+            orderMapper = new Mapper(config2);
         }
         public ActionResult Checkout()
         {
@@ -60,12 +65,23 @@ namespace FuegoBox.Presentation.Controllers
             }
         }
 
-        public ActionResult ViewOrderItem()
+        public ActionResult ViewOrder()
         {
+            OrdersModel ordersModel = new OrdersModel();
+            OrdersDTO  ordersDTO= new OrdersDTO();
+            Guid userId = new Guid(Session["UserID"].ToString());
+            ordersDTO=orderBusinessContext.GetOrders(userId);
+            ordersModel = orderMapper.Map<OrdersDTO, OrdersModel>(ordersDTO);
+            return View(ordersModel);
+        }
+
+        public ActionResult ViewOrderItem([Bind(Include = ("ID"))] OrderModel orderModel)
+        {
+
             ViewOrderModel vom = new ViewOrderModel();
             ViewOrderDTO vodto = new ViewOrderDTO();
-            Guid userId = new Guid(Session["UserID"].ToString());
-            vodto = orderBusinessContext.viewOrder(userId);
+            //Guid userId = new Guid(Session["UserID"].ToString());
+            vodto = orderBusinessContext.viewOrder(orderModel.ID);
             vom = omapper.Map<ViewOrderDTO, ViewOrderModel>(vodto);
             return View(vom);
         }

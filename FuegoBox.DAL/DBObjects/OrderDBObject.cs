@@ -62,6 +62,8 @@ namespace FuegoBox.DAL.DBObjects
                                    join vari in dbContext.Variant on op.VariantID equals vari.ID
                                    join p in dbContext.Product on vari.ProductID equals p.ID
                                    join img in dbContext.VariantImage on vari.ID equals img.VariantID
+                                   orderby or.OrderDate descending
+                       
                                    select new OrderItemsDTO()
                                    {
                                        Price = vari.Discount,

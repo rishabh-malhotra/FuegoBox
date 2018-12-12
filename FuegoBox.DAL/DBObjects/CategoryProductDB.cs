@@ -48,31 +48,51 @@ namespace FuegoBox.DAL.DBObjects
         //displaying top 3 selling products from 3 top selling categories
         public CategoryDTO GetCategoryonHomePage()
         {
-
+            var i = 1;
 
             CategoryDTO cd = new CategoryDTO();
             List<List<ProductDetailDTO>> productlist1 = new List<List<ProductDetailDTO>>();
-            var categories = dbContext.Category.Include(abc => abc.Product).OrderByDescending(cdd => cdd.ProductsSold).ToList().Take(3);
+            var categories = dbContext.Category.Include(abc => abc.Product).OrderByDescending(cdd => cdd.ProductsSold).ToList();
             foreach (Category cato in categories)
             {
-                cd.Products = (from pi in dbContext.Product
-                               where pi.CategoryID == cato.ID
-                               join v in dbContext.Variant on pi.ID equals v.ProductID
-                               join img in dbContext.VariantImage on v.ID equals img.VariantID
-                               orderby v.QuantitySold descending
-                               select new ProductDetailDTO()
-                               {
-                                   Name = pi.Name,
-                                   CatName = cato.Name,
-                                   ListingPrice = v.ListingPrice,
-                                   Discount = v.Discount,
-                                   ImageURL = img.ImageURL
-                               }).ToList().Take(3);
-
-
-                productlist1.Add(cd.Products.ToList());
+                if (i <= 3)
+                {
+                    cd.Products = (from pi in dbContext.Product
+                                   where pi.CategoryID == cato.ID
+                                   join v in dbContext.Variant on pi.ID equals v.ProductID
+                                   join img in dbContext.VariantImage on v.ID equals img.VariantID
+                                   orderby v.QuantitySold descending
+                                   select new ProductDetailDTO()
+                                   {
+                                       Name = pi.Name,
+                                       CatName = cato.Name,
+                                       ListingPrice = v.ListingPrice,
+                                       Discount = v.Discount,
+                                       ImageURL = img.ImageURL
+                                   }).ToList().Take(3);
+                    productlist1.Add(cd.Products.ToList());
+                }
+                else
+                {
+                    cd.Products = (from pi in dbContext.Product
+                                   where pi.CategoryID == cato.ID
+                                   join v in dbContext.Variant on pi.ID equals v.ProductID
+                                   join img in dbContext.VariantImage on v.ID equals img.VariantID
+                                   select new ProductDetailDTO()
+                                   {
+                                       Name = pi.Name,
+                                       CatName = cato.Name,
+                                       ListingPrice = v.ListingPrice,
+                                       Discount = v.Discount,
+                                       ImageURL = img.ImageURL
+                                   }).ToList().Take(5);
+                    productlist1.Add(cd.Products.ToList());
+                }
+                i++;
+                
 
             }
+
             List<ProductDetailDTO> productList2 = new List<ProductDetailDTO>();
             foreach (var productItr1 in productlist1)
             {

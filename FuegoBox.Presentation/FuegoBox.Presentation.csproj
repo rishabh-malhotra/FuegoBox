@@ -182,12 +182,14 @@
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\OrderItemsModel.cs" />
     <Compile Include="Models\ProductDetail.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\ProductSearchModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\VariantModel.cs" />
+    <Compile Include="Models\ViewOrderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -293,6 +295,8 @@
     <Content Include="Views\Cart\AddToCart.cshtml" />
     <Content Include="Views\Shared\InternalError.cshtml" />
     <Content Include="Views\Category\NoSearch.cshtml" />
+    <Content Include="Views\Order\PlaceOrder.cshtml" />
+    <Content Include="Views\Order\ViewOrderItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

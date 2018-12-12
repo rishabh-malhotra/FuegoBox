@@ -26,13 +26,11 @@ namespace FuegoBox.DAL
         public double TotalAmount { get; set; }
         public System.Guid DeliveryAddressID { get; set; }
         public System.DateTime DeliveryDate { get; set; }
-        public System.Guid StatusID { get; set; }
         public string isCancelled { get; set; }
     
         public virtual Address Address { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderProduct> OrderProduct { get; set; }
         public virtual User User { get; set; }
-        public virtual Status Status { get; set; }
     }
 }

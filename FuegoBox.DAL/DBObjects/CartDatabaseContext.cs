@@ -43,7 +43,7 @@ namespace FuegoBox.DAL.DBObjects
             return false;
         }
 
-
+    
         public void AddToCart(CartDTO cartDTO)
         {
             Cart cart = new Cart();

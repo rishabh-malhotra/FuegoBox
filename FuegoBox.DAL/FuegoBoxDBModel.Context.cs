@@ -33,7 +33,6 @@ namespace FuegoBox.DAL
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Property> Property { get; set; }
         public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Value> Value { get; set; }
         public virtual DbSet<Variant> Variant { get; set; }

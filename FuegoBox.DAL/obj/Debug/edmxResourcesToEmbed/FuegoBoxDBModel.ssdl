@@ -38,7 +38,6 @@
     <Property Name="TotalAmount" Type="float" Nullable="false" />
     <Property Name="DeliveryAddressID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="DeliveryDate" Type="smalldatetime" Nullable="false" />
-    <Property Name="StatusID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="isCancelled" Type="char" MaxLength="2" Nullable="false" />
   </EntityType>
   <EntityType Name="OrderProduct">
@@ -74,13 +73,6 @@
     </Key>
     <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Status">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="description" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -238,18 +230,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_statusID">
-    <End Role="Status" Type="Self.Status" Multiplicity="1" />
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Status">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="StatusID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_User">
     <End Role="Role" Type="Self.Role" Multiplicity="1" />
     <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -367,7 +347,6 @@
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Property" EntityType="Self.Property" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserAddress" EntityType="Self.UserAddress" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Value" EntityType="Self.Value" Schema="dbo" store:Type="Tables" />
@@ -406,10 +385,6 @@
     <AssociationSet Name="FK_Product_CategoryID" Association="Self.FK_Product_CategoryID">
       <End Role="Category" EntitySet="Category" />
       <End Role="Product" EntitySet="Product" />
-    </AssociationSet>
-    <AssociationSet Name="FK_statusID" Association="Self.FK_statusID">
-      <End Role="Status" EntitySet="Status" />
-      <End Role="Order" EntitySet="Order" />
     </AssociationSet>
     <AssociationSet Name="FK_User" Association="Self.FK_User">
       <End Role="Role" EntitySet="Role" />

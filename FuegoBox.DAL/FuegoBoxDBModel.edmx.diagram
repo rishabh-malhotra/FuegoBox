@@ -13,7 +13,6 @@
         <EntityTypeShape EntityType="FuegoModel.Product" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="FuegoModel.Property" Width="1.5" PointX="6" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="FuegoModel.Role" Width="1.5" PointX="3.75" PointY="21.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="FuegoModel.Status" Width="1.5" PointX="6" PointY="18.25" IsExpanded="true" />
         <EntityTypeShape EntityType="FuegoModel.User" Width="1.5" PointX="6" PointY="20.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FuegoModel.Value" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FuegoModel.Variant" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
@@ -25,7 +24,6 @@
         <AssociationConnector Association="FuegoModel.FK_Product_CategoryID" ManuallyRouted="false" />
         <AssociationConnector Association="FuegoModel.FK_OrderProductOrderID" ManuallyRouted="false" />
         <AssociationConnector Association="FuegoModel.FK_OrderUser" ManuallyRouted="false" />
-        <AssociationConnector Association="FuegoModel.FK_statusID" ManuallyRouted="false" />
         <AssociationConnector Association="FuegoModel.FK_OrderProductVariant" ManuallyRouted="false" />
         <AssociationConnector Association="FuegoModel.FK_Variant" ManuallyRouted="false" />
         <AssociationConnector Association="FuegoModel.FK_VariantPropertyValue_PropertyID" ManuallyRouted="false" />

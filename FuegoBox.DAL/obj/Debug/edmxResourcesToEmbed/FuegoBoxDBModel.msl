@@ -41,7 +41,6 @@
           <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
           <ScalarProperty Name="DeliveryAddressID" ColumnName="DeliveryAddressID" />
           <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
-          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
           <ScalarProperty Name="isCancelled" ColumnName="isCancelled" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -81,14 +80,6 @@
         <MappingFragment StoreEntitySet="Role">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Status">
-      <EntityTypeMapping TypeName="FuegoModel.Status">
-        <MappingFragment StoreEntitySet="Status">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="description" ColumnName="description" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

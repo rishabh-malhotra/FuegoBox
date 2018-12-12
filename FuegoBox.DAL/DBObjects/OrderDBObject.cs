@@ -48,5 +48,27 @@ namespace FuegoBox.DAL.DBObjects
             dbContext.SaveChanges();
         }
 
+        public ViewOrderDTO ViewOrder(Guid userid)
+        {
+            ViewOrderDTO viewcdto = new ViewOrderDTO();
+            dbContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+            viewcdto.OrderItems = (from or in dbContext.Order.Where(cdd => cdd.UserID == userid)
+                                   join cart in dbContext.Cart on or.UserID equals cart.UserID
+                                   join vari in dbContext.Variant on cart.VariantID equals vari.ID
+                                   join img in dbContext.VariantImage on vari.ID equals img.VariantID
+                                   join p in dbContext.Product on vari.ProductID equals p.ID
+
+                                   select new OrderItemsDTO()
+                                   {
+                                       OrderDate = or.OrderDate,
+                                       Name = p.Name,
+                                       Price = vari.Discount,
+                                       Url = img.ImageURL
+
+
+                                   });
+            return viewcdto;
+        }
+
     }
 }

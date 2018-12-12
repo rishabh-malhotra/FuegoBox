@@ -11,21 +11,27 @@ using FuegoBox.Business.BusinessObjects;
 
 namespace FuegoBox.Presentation.Controllers
 {
-    
+
 
     [UserAuthenticationFilter]
     public class OrderController : Controller
     {
         OrderBusinessContext orderBusinessContext;
 
-        IMapper AddressMapper;
+        IMapper AddressMapper, omapper, OrderMapper;
         public OrderController()
         {
             orderBusinessContext = new OrderBusinessContext();
-            var config = new MapperConfiguration(cfg => {
+            var config = new MapperConfiguration(cfg =>
+            {
                 cfg.CreateMap<AddressModel, AddressDTO>();
             });
-            AddressMapper = new Mapper(config);
+            var conf = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<ViewOrderDTO, ViewOrderModel>();
+            });
+            OrderMapper = new Mapper(config);
+            omapper = new Mapper(conf);
         }
         public ActionResult Checkout()
         {
@@ -40,7 +46,7 @@ namespace FuegoBox.Presentation.Controllers
                 try
                 {
                     AddressDTO addressDTO = AddressMapper.Map<AddressDTO>(addressViewModel);
-                    orderBusinessContext.PlaceOrder(new Guid(Session["UserID"].ToString()), addressDTO);
+                    orderBusinessContext.PlaceOrder(addressDTO, new Guid(Session["UserID"].ToString()));
                     return View("Success");
                 }
                 catch (Exception ex)
@@ -52,6 +58,16 @@ namespace FuegoBox.Presentation.Controllers
             {
                 return View(addressViewModel);
             }
+        }
+
+        public ActionResult ViewOrderItem()
+        {
+            ViewOrderModel vom = new ViewOrderModel();
+            ViewOrderDTO vodto = new ViewOrderDTO();
+            Guid userId = new Guid(Session["UserID"].ToString());
+            vodto = orderBusinessContext.viewOrder(userId);
+            vom = omapper.Map<ViewOrderDTO, ViewOrderModel>(vodto);
+            return View(vom);
         }
     }
 }

@@ -43,7 +43,6 @@
           <Property Name="TotalAmount" Type="float" Nullable="false" />
           <Property Name="DeliveryAddressID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="DeliveryDate" Type="smalldatetime" Nullable="false" />
-          <Property Name="StatusID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="isCancelled" Type="char" MaxLength="2" Nullable="false" />
         </EntityType>
         <EntityType Name="OrderProduct">
@@ -79,13 +78,6 @@
           </Key>
           <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Status">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="description" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -243,18 +235,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_statusID">
-          <End Role="Status" Type="Self.Status" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Status">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="StatusID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_User">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -372,7 +352,6 @@
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Property" EntityType="Self.Property" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserAddress" EntityType="Self.UserAddress" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Value" EntityType="Self.Value" Schema="dbo" store:Type="Tables" />
@@ -411,10 +390,6 @@
           <AssociationSet Name="FK_Product_CategoryID" Association="Self.FK_Product_CategoryID">
             <End Role="Category" EntitySet="Category" />
             <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_statusID" Association="Self.FK_statusID">
-            <End Role="Status" EntitySet="Status" />
-            <End Role="Order" EntitySet="Order" />
           </AssociationSet>
           <AssociationSet Name="FK_User" Association="Self.FK_User">
             <End Role="Role" EntitySet="Role" />
@@ -501,12 +476,10 @@
           <Property Name="TotalAmount" Type="Double" Nullable="false" />
           <Property Name="DeliveryAddressID" Type="Guid" Nullable="false" />
           <Property Name="DeliveryDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="StatusID" Type="Guid" Nullable="false" />
           <Property Name="isCancelled" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Address" Relationship="Self.FK_OrderAddressID" FromRole="Order" ToRole="Address" />
           <NavigationProperty Name="OrderProduct" Relationship="Self.FK_OrderProductOrderID" FromRole="Order" ToRole="OrderProduct" />
           <NavigationProperty Name="User" Relationship="Self.FK_OrderUser" FromRole="Order" ToRole="User" />
-          <NavigationProperty Name="Status" Relationship="Self.FK_statusID" FromRole="Order" ToRole="Status" />
         </EntityType>
         <EntityType Name="OrderProduct">
           <Key>
@@ -547,14 +520,6 @@
           <Property Name="ID" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_User" FromRole="Role" ToRole="User" />
-        </EntityType>
-        <EntityType Name="Status">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Guid" Nullable="false" />
-          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_statusID" FromRole="Status" ToRole="Order" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -686,18 +651,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_statusID">
-          <End Role="Status" Type="Self.Status" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Status">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="StatusID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_OrderProductVariant">
           <End Role="Variant" Type="Self.Variant" Multiplicity="1" />
           <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
@@ -807,7 +760,6 @@
           <EntitySet Name="Product" EntityType="Self.Product" />
           <EntitySet Name="Property" EntityType="Self.Property" />
           <EntitySet Name="Role" EntityType="Self.Role" />
-          <EntitySet Name="Status" EntityType="Self.Status" />
           <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="Value" EntityType="Self.Value" />
           <EntitySet Name="Variant" EntityType="Self.Variant" />
@@ -832,10 +784,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_OrderUser" Association="Self.FK_OrderUser">
             <End Role="User" EntitySet="User" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
-          <AssociationSet Name="FK_statusID" Association="Self.FK_statusID">
-            <End Role="Status" EntitySet="Status" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
           <AssociationSet Name="FK_OrderProductVariant" Association="Self.FK_OrderProductVariant">
@@ -953,7 +901,6 @@
                 <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
                 <ScalarProperty Name="DeliveryAddressID" ColumnName="DeliveryAddressID" />
                 <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
                 <ScalarProperty Name="isCancelled" ColumnName="isCancelled" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -993,14 +940,6 @@
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Status">
-            <EntityTypeMapping TypeName="FuegoModel.Status">
-              <MappingFragment StoreEntitySet="Status">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="description" ColumnName="description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

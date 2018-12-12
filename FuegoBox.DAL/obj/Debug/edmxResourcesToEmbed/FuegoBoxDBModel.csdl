@@ -44,12 +44,10 @@
     <Property Name="TotalAmount" Type="Double" Nullable="false" />
     <Property Name="DeliveryAddressID" Type="Guid" Nullable="false" />
     <Property Name="DeliveryDate" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="StatusID" Type="Guid" Nullable="false" />
     <Property Name="isCancelled" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Address" Relationship="Self.FK_OrderAddressID" FromRole="Order" ToRole="Address" />
     <NavigationProperty Name="OrderProduct" Relationship="Self.FK_OrderProductOrderID" FromRole="Order" ToRole="OrderProduct" />
     <NavigationProperty Name="User" Relationship="Self.FK_OrderUser" FromRole="Order" ToRole="User" />
-    <NavigationProperty Name="Status" Relationship="Self.FK_statusID" FromRole="Order" ToRole="Status" />
   </EntityType>
   <EntityType Name="OrderProduct">
     <Key>
@@ -90,14 +88,6 @@
     <Property Name="ID" Type="Guid" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_User" FromRole="Role" ToRole="User" />
-  </EntityType>
-  <EntityType Name="Status">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Guid" Nullable="false" />
-    <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Order" Relationship="Self.FK_statusID" FromRole="Status" ToRole="Order" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -229,18 +219,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_statusID">
-    <End Role="Status" Type="Self.Status" Multiplicity="1" />
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Status">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="StatusID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_OrderProductVariant">
     <End Role="Variant" Type="Self.Variant" Multiplicity="1" />
     <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
@@ -350,7 +328,6 @@
     <EntitySet Name="Product" EntityType="Self.Product" />
     <EntitySet Name="Property" EntityType="Self.Property" />
     <EntitySet Name="Role" EntityType="Self.Role" />
-    <EntitySet Name="Status" EntityType="Self.Status" />
     <EntitySet Name="User" EntityType="Self.User" />
     <EntitySet Name="Value" EntityType="Self.Value" />
     <EntitySet Name="Variant" EntityType="Self.Variant" />
@@ -375,10 +352,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_OrderUser" Association="Self.FK_OrderUser">
       <End Role="User" EntitySet="User" />
-      <End Role="Order" EntitySet="Order" />
-    </AssociationSet>
-    <AssociationSet Name="FK_statusID" Association="Self.FK_statusID">
-      <End Role="Status" EntitySet="Status" />
       <End Role="Order" EntitySet="Order" />
     </AssociationSet>
     <AssociationSet Name="FK_OrderProductVariant" Association="Self.FK_OrderProductVariant">

@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "ViewOrderItem";
+}
+@foreach (var product in Model.OrderItems)
+{<h2>Order Date: @product.OrderDate</h2>
+<h3>Name: @product.Name</h3>
+<h3>Price: @product.Price</h3>
+<img src="@product.Url" height="100px" width="100px" />
+}

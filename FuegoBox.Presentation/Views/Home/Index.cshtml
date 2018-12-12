@@ -1,16 +1,39 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<h3>Top 3 Products from Top 3 Categories</h3>
+<div class="row">
+    @{var i = 1; }
+    @foreach (var prod in Model.Products)
+    {
+        if (i <= 9)
+        {
+            <div class="col-md-4 anchor">
+                <div class="card-body card-style">
+                    <h4>Category Name: @prod.CatName</h4>
+                    <h4>NAME: @prod.Name</h4>
+                    <img src="@prod.ImageURL" height="150" width="150" />
+                    <hr />
+                    <hr />
+                </div>
+            </div>
+        }
 
+        else
+        {
 
+            <div class="col-md-2 anchor">
+                <div class="card-body card-style">
+                    <h6> @prod.CatName</h6>
+                    <h6>NAME: @prod.Name</h6>
+                    <img src="@prod.ImageURL" height="100" width="100" />
+                    <hr />
+                    <hr />
+                </div>
+            </div>
 
-@foreach (var prod in Model.Products)
-{
-    <h2>NAME: @prod.Name</h2>
-    <h2>Category Name: @prod.CatName</h2>
+        }
 
-    <h2>ListingPrice: @prod.ListingPrice</h2>
-
-    <h2>Discount Price: @prod.Discount</h2>
-    <img src="@prod.ImageURL" height="150" width="150" />
-}
+        i++;
+    }
+</div>

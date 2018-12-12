@@ -7,6 +7,7 @@ namespace FuegoBox.Shared.DTO.Product
 {
     public class ProductDetailDTO
     {
+
         public string CatName { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }

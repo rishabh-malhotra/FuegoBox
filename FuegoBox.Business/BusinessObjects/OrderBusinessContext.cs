@@ -32,7 +32,7 @@ namespace FuegoBox.Business.BusinessObjects
             }
             cartsDTO.SubTotal = subtotal;
             orderDBObject.PlaceOrder(userid, cartsDTO, addressid);
-            cartBusinessContext.EmptyCart(userid);
+            //cartBusinessContext.EmptyCart(userid);
             return true;
         }
 

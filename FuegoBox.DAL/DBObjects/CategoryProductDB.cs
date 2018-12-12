@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FuegoBox.DAL.Exceptions;
+using FuegoBox.Shared.DTO.Cart;
 using FuegoBox.Shared.DTO.Category;
 using FuegoBox.Shared.DTO.Product;
 using System;
@@ -119,5 +120,22 @@ namespace FuegoBox.DAL.DBObjects
             }
             return true;
         }
-    }
+
+        public void update(CartsDTO vcdto)
+        {
+
+            Category cat = new Category();
+            foreach (var abc in vcdto.CartItems)
+            {
+
+                dbContext.Variant.SingleOrDefault(cad => cad.ID == abc.Variant.ID).QuantitySold += 1;
+
+                Variant vd = dbContext.Variant.Where(abc1 => abc1.ID == abc.Variant.ID).First();
+                Product pd = dbContext.Product.Where(ds => ds.ID == vd.ProductID).FirstOrDefault();
+                Category cat1 = dbContext.Category.Where(re => re.ID == pd.CategoryID).FirstOrDefault();
+                dbContext.Category.SingleOrDefault(c => c.ID == cat1.ID).ProductsSold += 1;
+                dbContext.SaveChanges();
+            }
+            }
+        }
 }

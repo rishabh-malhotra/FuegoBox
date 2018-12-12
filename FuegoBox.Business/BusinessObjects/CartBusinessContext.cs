@@ -15,21 +15,14 @@ namespace FuegoBox.Business.BusinessObjects
         CartDatabaseContext cartDatabaseContext=new CartDatabaseContext();
 
         //function to add items to the cart 
-        public bool AddToCart(CartDTO cartDTO)
+        public bool AddToCart(Guid id,Guid Userid)
         {
-            
-             bool alreadyPresent = cartDatabaseContext.PresentInCart(cartDTO);
-            if (alreadyPresent == true)
-            {
-                cartDatabaseContext.AddToCart(cartDTO);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-           
-           
+
+            //   bool alreadyPresent = cartDatabaseContext.PresentInCart(cartDTO);
+            bool cdto = cartDatabaseContext.AddToCart(id, Userid);
+            return cdto;
+
+
         }
 
         //function to view the cart according to the user...

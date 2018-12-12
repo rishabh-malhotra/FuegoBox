@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DTO\Cart\CartProductsDTO.cs" />
+    <Compile Include="DTO\Cart\ViewCartDTO.cs" />
     <Compile Include="DTO\Category\CategoryDTO.cs" />
     <Compile Include="DTO\Order\AddressDTO.cs" />
     <Compile Include="DTO\Order\OrderItemsDTO.cs" />

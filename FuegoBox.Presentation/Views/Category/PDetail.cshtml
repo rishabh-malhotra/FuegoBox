@@ -2,34 +2,72 @@
 @{
     ViewBag.Title = "PDetail";
 }
-<div class="container">
-    <div class="row p-detail">
+
+@if (Session["UserID"] != null)
+{
+
+
+    <div class="container">
+        <div class="row p-detail">
             <div class="col-md-4">
                 <img class="img-fluid" id="imageToSwap" src="@Model.ImageURL" width="250" height="250" />
             </div>
             <div class="col-md-6">
-                <h2>@Model.ID</h2>
+
                 <h2 class="title"><b>Name:</b> @Model.Name</h2>
                 <p><b>Description:</b> @Model.Description</p>
                 <h5><b>Category:</b> @Model.CatName</h5>
-                @*<h6><b>Price: &#8377;</b> @Model.ListingPrice</h6>
-                <h6><b>Discount Price: &#8377;</b> @Model.Discount</h6>*@
-                <h6><b>@(Model.Inventory - Model.QuantitySold)</b> left in stock.</h6>
-                @using (Html.BeginForm("AddToCart", "Cart", new { ProductID = Model.ID}, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                <h5><b>Price:</b> <span id="variantprice"> @Model.ListingPrice</span></h5>
+                <h5><b>Price After Discount:</b> <span id="variantdiscount">@Model.Discount</span></h5>
+                @if (Model.Variants.Count() == 2)
+                {
+                    <select onchange="onVariantChange(this.options[this.selectedIndex].value)">
+                        @foreach (var Variant in Model.Variants)
+                        {
+
+                            <option value="@Newtonsoft.Json.JsonConvert.SerializeObject(@Variant)">@Variant.Variant_Property: @Variant.Variant_Value1</option>
+                            <!--<option value=Variant.ID>Variant.Variant_Property: Variant.Variant_Value2</option>-->
+                        }
+                    </select>
+                    <input type="hidden" id="hdnVariantId" />
+                    <button class="btn btn-block btn-primary" onclick="onAddtoCart()">Add To Cart</button>
+                }
+                else
                 {
 
-                    <!--<img src="Variant.image" height="100" width="100" />-->
-                <select onchange="$('#imageToSwap').attr('src', this.options[this.selectedIndex].value);">
-                    @foreach (var Variant in Model.Variants)
-                    {
+                    <input type="hidden" id="hdnVariantId1" />
+                    <button class="btn btn-block btn-primary" onclick="onAddtoCart1(@Newtonsoft.Json.JsonConvert.SerializeObject(Model))">Add To Cart</button>
 
-                        <option value=@Variant.image>@Variant.Variant_Property: @Variant.Variant_Value1</option>
-                        <!--<option value=Variant.ID>Variant.Variant_Property: Variant.Variant_Value2</option>-->
-                    }
-                </select>
-
-                    <button class="btn btn-block btn-primary" type="submit">Add To Cart</button>
                 }
+
             </div>
         </div>
     </div>
+}
+else
+{
+    <h3>You are not logged in.</h3>
+
+}
+<script type="text/javascript">
+    var onVariantChange = function (variant) {
+        variant = jQuery.parseJSON(variant);
+        $('#imageToSwap').attr('src', variant.image);
+        $('#variantprice').html(variant.ListingPrice);
+        $('#variantdiscount').html(variant.Discount);
+        $('#hdnVariantId').val(variant.ID);
+    }
+
+    var onAddtoCart = function () {
+        window.location.href = "/Cart/AddToCart?Id=" + $('#hdnVariantId').val();
+    }
+    var onAddtoCart1 = function (product) {
+        console.log('product' + product)
+        // variant = jQuery.parseJSON(product);
+        console.log('Product id' + product.ID)
+        $('#hdnVariantId1').val(product.ID);
+        debugger;
+        window.location.href = "/Cart/AddToCart?Id=" + $('#hdnVariantId1').val();
+    }
+
+</script>

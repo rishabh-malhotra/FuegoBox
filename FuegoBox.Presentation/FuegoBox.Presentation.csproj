@@ -177,6 +177,7 @@
     <Compile Include="Models\AddressModel.cs" />
     <Compile Include="Models\CartMessageModel.cs" />
     <Compile Include="Models\CartModel.cs" />
+    <Compile Include="Models\CartProductModel.cs" />
     <Compile Include="Models\CartsModel.cs" />
     <Compile Include="Models\CartVariantModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />
@@ -189,6 +190,7 @@
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\VariantModel.cs" />
+    <Compile Include="Models\ViewCartModel.cs" />
     <Compile Include="Models\ViewOrderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

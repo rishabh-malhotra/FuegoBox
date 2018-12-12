@@ -78,16 +78,16 @@ namespace FuegoBox.Presentation.Controllers
             return View(cartsModel);
         }
 
-        [HttpPost]
-        public ActionResult AddToCart([Bind (Include="ProductID")] CartModel cartmodel)
+       
+        public ActionResult AddToCart(string id)
         {
             CartMessageModel cartMessageModel = new CartMessageModel();
 
-          
-                CartDTO cartDTO = CartMapper.Map<CartDTO>(cartmodel);
-                cartDTO.UserID = new Guid(Session["UserID"].ToString());
-                cartDTO.ProductID = cartmodel.ProductID;
-                bool result=  cartBusinessContext.AddToCart(cartDTO);
+            Guid ID = Guid.Parse(id);
+               // CartDTO cartDTO = CartMapper.Map<CartDTO>(cartmodel);
+                 Guid UserID = new Guid(Session["UserID"].ToString());
+               // cartDTO.ProductID = cartmodel.ProductID;
+                bool result=  cartBusinessContext.AddToCart(ID,UserID);
                 if (result == true)
                 {
                 

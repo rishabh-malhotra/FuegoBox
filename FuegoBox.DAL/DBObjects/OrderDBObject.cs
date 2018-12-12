@@ -37,8 +37,10 @@ namespace FuegoBox.DAL.DBObjects
 
         public void PlaceOrder(Guid userid, CartsDTO cdto, Guid addressid)
         {
+            CategoryProductDB cdb = new CategoryProductDB();
             Order order = new Order();
             order.ID = Guid.NewGuid();
+            cdb.update(cdto);
             order.OrderDate = DateTime.Now;
             order.DeliveryDate = DateTime.Now.AddDays(2);
             order.UserID = userid;

@@ -48,12 +48,15 @@ namespace FuegoBox.DAL.DBObjects
                                             Variant_Value1=value.Name,
                                             image=img.ImageURL,
                                             Inventory=v.Inventory,
-                                            QuantitySold=v.QuantitySold
+                                            QuantitySold=v.QuantitySold,
+                                            ID=v.ID
                                             
                                         });
                 Variant var = dbContext.Variant.Where(cdf => cdf.ProductID == product.ID).FirstOrDefault();
                 VariantImage ima = dbContext.VariantImage.Where(cd => cd.VariantID == var.ID).First();
                 newBasicDTO.ImageURL = ima.ImageURL;
+                newBasicDTO.ListingPrice = var.ListingPrice;
+                newBasicDTO.Discount = var.Discount;
                 return newBasicDTO;
             }
             return null;
@@ -90,7 +93,7 @@ namespace FuegoBox.DAL.DBObjects
             cart.ID = Guid.NewGuid();
             cart.VariantID = variant.ID;
             cart.SellingPrice = variant.Discount;
-            cart.Qty = 2;
+            cart.Qty = 1;
             cartdto.Name = product.Name;
             dbContext.Cart.Add(cart);
             dbContext.SaveChanges();

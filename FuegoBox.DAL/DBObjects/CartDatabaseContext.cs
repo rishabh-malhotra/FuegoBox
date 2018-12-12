@@ -33,14 +33,19 @@ namespace FuegoBox.DAL.DBObjects
 
             IEnumerable<Cart> carts = dbContext.Cart.Where(p => p.UserID == cartDTO.UserID);
 
+            Variant variant = dbContext.Variant.Where(pro => pro.ProductID == cartDTO.ProductID).FirstOrDefault();
+                //dbContext.Variant.Where(cdd=>cdd.ID==cartDTO.VariantID).ToList();
+
             foreach (var cart in carts)
             {
-                if (cart.VariantID == cartDTO.VariantID)
-                {
-                    throw new AlreadyPresentException();
-                }
+      
+                    if (cart.VariantID == variant.ID)
+                    {
+                        return false;
+                    }
+                
             }
-            return false;
+            return true;
         }
 
     

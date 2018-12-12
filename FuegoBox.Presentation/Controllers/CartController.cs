@@ -83,38 +83,25 @@ namespace FuegoBox.Presentation.Controllers
         {
             CartMessageModel cartMessageModel = new CartMessageModel();
 
-            if (ModelState.IsValid)
-            {
+          
                 CartDTO cartDTO = CartMapper.Map<CartDTO>(cartmodel);
                 cartDTO.UserID = new Guid(Session["UserID"].ToString());
-                try
+                cartDTO.ProductID = cartmodel.ProductID;
+                bool result=  cartBusinessContext.AddToCart(cartDTO);
+                if (result == true)
                 {
-                    cartBusinessContext.AddToCart(cartDTO);
+                
                     cartMessageModel.SuccessMessage = "Item Successfuly Added to Cart";
                     cartMessageModel.IsLoggedIn = true;
                     return View(cartMessageModel);
                 }
-                catch (ItemAlreadyInCartException ex)
+                else
                 {
-                    cartMessageModel.ErrorMessages.Add("Item is already present in the cart");
-                    return View(cartMessageModel);
+                    return View("NotAdded");
                 }
-                catch (Exception ex)
-                {
-                    return View("InternalError");
-                }
-            }
-            else
-            {
-                foreach (var modelState in ModelState.Values)
-                {
-                    foreach (var err in modelState.Errors)
-                    {
-                        cartMessageModel.ErrorMessages.Add(err.ErrorMessage.ToString());
-                    }
-                }
-                return View(cartMessageModel);
-            }
+               
+          
+           
         }
         public ActionResult RemoveItem(Guid VariantID)
         {

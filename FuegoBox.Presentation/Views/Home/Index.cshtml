@@ -3,37 +3,53 @@
 }
 <h3>Top 3 Products from Top 3 Categories</h3>
 <div class="row">
-    @{var i = 1; }
-    @foreach (var prod in Model.Products)
+    @{
+
+    var i = 1; 
+
+    foreach (var prod in Model.Products)
     {
         if (i <= 9)
         {
-            <div class="col-md-4 anchor">
-                <div class="card-body card-style">
-                    <h4>Category Name: @prod.CatName</h4>
-                    <h4>NAME: @prod.Name</h4>
-                    <img src="@prod.ImageURL" height="150" width="150" />
-                    <hr />
-                    <hr />
-                </div>
+            <div class="col-md-4 anchor" style="margin-bottom:10px">
+                <a class="card h-100" href="@Url.Action("PDetail", "Category", new { Name = prod.Name})">
+                    
+                    <div class="card-body card-style">
+                        <img src="@prod.ImageURL" height="200" width="200" />
+                        <h2 class="card-title text-center">Category Name: @prod.CatName</h2>
+                        <h2 class="card-title text-center">NAME: @prod.Name</h2>
+                        <h2 class="card-title text-center" style="text-decoration:line-through">@prod.ListingPrice</h2>
+                        <h2 class="card-title text-center">@prod.Discount</h2>
+                    </div>
+                </a>
             </div>
         }
 
         else
         {
+            if (i == 10)
+            {
+            <div class="col-md-6 offset-3"><h2>5 products from Other Categories</h2></div>
+                <div class="col-md-12"></div>
+                
+                
+            }
+            <div class="col-md-2 anchor" style="margin-bottom:10px">
+                <a class="card h-100" href="@Url.Action("PDetail", "Category", new { Name = prod.Name})">
+                    <div class="card-body card-style">
+                        <img src="@prod.ImageURL" height="200" width="200" />
+                        <h2 class="card-title text-center">Category Name: @prod.CatName</h2>
+                        <h2 class="card-title text-center">NAME: @prod.Name</h2>
+                        <h2 class="card-title text-center" style="text-decoration:line-through">@prod.ListingPrice</h2>
+                        <h2 class="card-title text-center">@prod.Discount</h2>
 
-            <div class="col-md-2 anchor">
-                <div class="card-body card-style">
-                    <h6> @prod.CatName</h6>
-                    <h6>NAME: @prod.Name</h6>
-                    <img src="@prod.ImageURL" height="100" width="100" />
-                    <hr />
-                    <hr />
-                </div>
+                    </div>
+                </a>
             </div>
 
         }
 
         i++;
+    }
     }
 </div>

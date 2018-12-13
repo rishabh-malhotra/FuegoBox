@@ -2,11 +2,25 @@
 @{
     ViewBag.Title = "ViewOrderItem";
 }
-@foreach (var product in Model.OrderItems)
-{
-    <h4><b>Name:</b> @product.Name</h4>
-<h4><b>Price:</b> @product.Price</h4>
-<h4><b>Order Date:</b>@product.OrderDate</h4>
-<img src="@product.Url" height="100" width="100" />
-<hr /><hr />
-}
+
+<h2 class="center-element">Products Ordered</h2>
+<div class="row">
+    @foreach (var product in Model.OrderItems)
+    {
+    <div class="col-md-10 offset-1 h-100">
+        <div class="card card-style" style="margin-bottom:10px">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="@product.Url" height="100" width="100" />
+                    </div>
+                    <div class="col-md-6">
+                        <h2><b>Name:</b> @product.Name</h2>
+                        <h2><b>Price:</b> @product.Price</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>

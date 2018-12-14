@@ -38,6 +38,7 @@ namespace FuegoBox.Presentation.Controllers
             omapper = new Mapper(conf);
             orderMapper = new Mapper(config2);
         }
+
         public ActionResult Checkout()
         {
             return View();
@@ -65,6 +66,7 @@ namespace FuegoBox.Presentation.Controllers
             }
         }
 
+        [UserAuthenticationFilter]
         public ActionResult ViewOrder()
         {
             OrdersModel ordersModel = new OrdersModel();
@@ -74,7 +76,8 @@ namespace FuegoBox.Presentation.Controllers
             ordersModel = orderMapper.Map<OrdersDTO, OrdersModel>(ordersDTO);
             return View(ordersModel);
         }
-
+        
+        [UserAuthenticationFilter]
         public ActionResult ViewOrderItem([Bind(Include = ("ID"))] OrderModel orderModel)
         {
 

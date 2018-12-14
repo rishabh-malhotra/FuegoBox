@@ -13,7 +13,6 @@ namespace FuegoBox.DAL.DBObjects
     {
         FuegoEntities dbContext;
         IMapper AddressMapper;
-        //CategoryProductDB categorydb = new CategoryProductDB();
         public OrderDBObject()
         {
             dbContext = new FuegoEntities();
@@ -92,7 +91,7 @@ namespace FuegoBox.DAL.DBObjects
 
             foreach (var i in ordersDTO.orders)
             {
-                if (i.DeliveryDate <= i.OrderDate) {
+                if (i.DeliveryDate <= DateTime.Now) {
                     i.status = "Delivered";
                 }
                 else
@@ -108,4 +107,3 @@ namespace FuegoBox.DAL.DBObjects
     }
 }
 
-//dbContext.Order.Where(or=>or.UserID == user_Id);
